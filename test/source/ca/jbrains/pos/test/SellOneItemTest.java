@@ -46,7 +46,12 @@ public class SellOneItemTest {
         }
 
         public void onBarcode(String barCode) {
-            display.setText("$7.95");
+            if("12345".equals(barCode)){
+                display.setText("$7.95");
+            }else {
+                display.setText("$12.50");
+            }
+
             /*No Return value !!! Event handlers do NOT return values*/
         }
     }
