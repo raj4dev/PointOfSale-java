@@ -1,0 +1,6 @@
+# Ignore IDEA artifacts
+*. iws
+.idea/workspace.xml
+.idea/tasks.xml
+# Ignore build output
+# */classes
