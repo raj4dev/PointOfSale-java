@@ -16,7 +16,6 @@ public class SellOneItemTest {
     }
 
     @Test
-    @Ignore("Refactoring...")
     public void anotherProductFound() throws Exception {
         final Display display = new Display();
         final Sale sale = new Sale(display);
