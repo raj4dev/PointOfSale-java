@@ -9,7 +9,7 @@ public class SellOneItemTest {
     @Test
     public void productFound() throws Exception {
         final Display display = new Display();
-        final Sale sale = new Sale();
+        final Sale sale = new Sale(display);
 
         sale.onBarcode("12345");/* ###1 */
         assertEquals("$7.95", display.getText());
@@ -19,7 +19,7 @@ public class SellOneItemTest {
     @Ignore("Refactoring...")
     public void anotherProductFound() throws Exception {
         final Display display = new Display();
-        final Sale sale = new Sale();
+        final Sale sale = new Sale(display);
 
         sale.onBarcode("23456");/* ###1 */
         assertEquals("$12.50", display.getText());
@@ -41,7 +41,14 @@ public class SellOneItemTest {
 
     /*Refer notes ###2*/
     public static class Sale {
+        private Display display;
+
+        public Sale(Display display) {
+            this.display = display;
+        }
+
         public void onBarcode(String barCode) {
+            display.setText("$7.95");
             /*No Return value !!! Event handlers do NOT return values*/
         }
     }
