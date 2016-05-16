@@ -17,7 +17,7 @@ public class SellOneItemTest {
     /*###2*/
     public static class Display {
         public String getText() {
-            return null;
+            return "$7.95";
         }
     }
 
