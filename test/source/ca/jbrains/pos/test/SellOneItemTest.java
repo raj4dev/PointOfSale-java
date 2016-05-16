@@ -14,6 +14,15 @@ public class SellOneItemTest {
         assertEquals("$7.95", display.getText());
     }
 
+    @Test
+    public void anotherProductFound() throws Exception {
+        final Display display = new Display();
+        final Sale sale = new Sale();
+
+        sale.onBarcode("23456");/* ###1 */
+        assertEquals("$12.50", display.getText());
+    }
+
     /*###2*/
     public static class Display {
         public String getText() {
