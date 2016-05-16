@@ -3,6 +3,9 @@ package ca.jbrains.pos.test;
 import junit.framework.Assert;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static junit.framework.TestCase.assertEquals;
 
 public class SellOneItemTest {
@@ -67,11 +70,16 @@ public class SellOneItemTest {
             if ("".equals(barCode)) {
                 display.setText("Scanning error: empty barcode");
             } else {
+                //Introduce barcode lookup table
+                Map<String, String> pricesByBarcode = new HashMap<String, String>() {{
+                    put("12345", "$7.95");
+                    put("23456", "$12.50");
+                }};
 
                 if ("12345".equals(barCode)) {
-                    display.setText("$7.95");
+                    display.setText(pricesByBarcode.get("12345"));
                 } else if ("23456".equals(barCode)) {
-                    display.setText("$12.50");
+                    display.setText(pricesByBarcode.get("23456"));
                 } else {
                     display.setText("Product not found for " + barCode);
                 }
