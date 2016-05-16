@@ -61,21 +61,21 @@ public class SellOneItemTest {
     /*Refer notes ###2*/
     public static class Sale {
         private Display display;
+        private Map<String, String> pricesByBarcode;
 
         public Sale(Display display) {
             this.display = display;
+            //Introduce barcode lookup table
+            this.pricesByBarcode = new HashMap<String, String>() {{
+                put("12345", "$7.95");
+                put("23456", "$12.50");
+            }};
         }
 
         public void onBarcode(String barCode) {
             if ("".equals(barCode)) {
                 display.setText("Scanning error: empty barcode");
             } else {
-                //Introduce barcode lookup table
-                Map<String, String> pricesByBarcode = new HashMap<String, String>() {{
-                    put("12345", "$7.95");
-                    put("23456", "$12.50");
-                }};
-
                 if (pricesByBarcode.containsKey(barCode)) {
                     display.setText(pricesByBarcode.get(barCode));
                 } else {
