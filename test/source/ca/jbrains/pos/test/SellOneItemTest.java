@@ -78,8 +78,6 @@ public class SellOneItemTest {
 
                 if ("12345".equals(barCode) || "23456".equals(barCode)) {
                     display.setText(pricesByBarcode.get(barCode));
-                } else if ("23456".equals(barCode)) {
-                    display.setText(pricesByBarcode.get(barCode));
                 } else {
                     display.setText("Product not found for " + barCode);
                 }
