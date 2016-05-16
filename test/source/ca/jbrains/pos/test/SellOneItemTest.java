@@ -29,7 +29,7 @@ public class SellOneItemTest {
         final Display display = new Display();
         final Sale sale = new Sale(display);
 
-        sale.onBarcode("888");
+        sale.onBarcode("99999");
         assertEquals("Product not found for 99999", display.getText());
     }
 
