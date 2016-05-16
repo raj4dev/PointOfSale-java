@@ -30,7 +30,6 @@ public class SellOneItemTest {
         private String text;
 
         public String getText() {
-            text = "$7.95";
             return text;
         }
 
