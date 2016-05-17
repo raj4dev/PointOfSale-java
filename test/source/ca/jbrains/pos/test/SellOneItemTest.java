@@ -60,6 +60,18 @@ public class SellOneItemTest {
         public void setText(String text) {
             this.text = text;
         }
+
+        public void displayPrice(String priceAsText) {
+            setText(priceAsText);
+        }
+
+        public void displayProductNotFoundMessage(String barCode) {
+            setText("Product not found for " + barCode);
+        }
+
+        public void displayEmptyBarcodeMessage() {
+            setText("Scanning error: empty barcode");
+        }
     }
 
     /*Refer notes ###2*/
@@ -76,42 +88,29 @@ public class SellOneItemTest {
         public void onBarcode(String barCode) {
             /*###3*/
             if ("".equals(barCode)) {
-                displayEmptyBarcodeMessage();
+                display.displayEmptyBarcodeMessage();
                 return; /*A guard clause*/
             }
 
             final String priceAsText = findPrice(barCode);
             if (priceAsText == null) {
-                displayProductNotFoundMessage(barCode);
+                display.displayProductNotFoundMessage(barCode);
             } else {
-                displayPrice(priceAsText);
+                display.displayPrice(priceAsText);
             }
 
             /*No Return value !!! Event handlers do NOT return values*/
         }
 
-        private void displayPrice(String priceAsText) {
-            display.setText(priceAsText);
-        }
-
-        /*Notice that findPrice talks to pricesByBarcode object (Model) while the other three methods
-        * talk to Display object (View). The other three methods do not refer to any variable or method
-        * of Sale. Perhaps the three methods must be moved to Display & findPrice should be moved
-        * elsewhere ???
-        *
-        * Google "Feature Envy Code Smell" for more info.
+        /*Notice that findPrice talks to pricesByBarcode object (Model). We should move findPrice
+        * somewhere else. But where ? We can't move it to HashMap like we did with the other three
+        * methods, because it is an inbuilt class of Java. Moreover, it does not sound like a method
+        * which should be on a Map. Looks like it should be in a new class !
         * */
         private String findPrice(String barCode) {
             return pricesByBarcode.get(barCode);
         }
 
-        private void displayProductNotFoundMessage(String barCode) {
-            display.setText("Product not found for " + barCode);
-        }
-
-        private void displayEmptyBarcodeMessage() {
-            display.setText("Scanning error: empty barcode");
-        }
     }
 
 }
