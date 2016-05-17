@@ -92,8 +92,16 @@ public class SellOneItemTest {
         /*The 'THEN' in findPriceThenDisplayPrice tells us that this method has too many
         * responsibilities. We will soon reduce its two resp. to just one.*/
         private void findPriceThenDisplayPrice(String barCode) {
-            final String priceAsText = pricesByBarcode.get(barCode);/*Find price*/
-            display.setText(priceAsText);/*Display price*/
+            final String priceAsText = findPrice(barCode);/*Find price*/
+            displayPrice(priceAsText);/*Display price*/
+        }
+
+        private void displayPrice(String priceAsText) {
+            display.setText(priceAsText);
+        }
+
+        private String findPrice(String barCode) {
+            return pricesByBarcode.get(barCode);
         }
 
         private void displayProductNotFoundMessage(String barCode) {
