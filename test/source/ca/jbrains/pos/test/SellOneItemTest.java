@@ -16,10 +16,10 @@ public class SellOneItemTest {
     @Before
     public void setUp() throws Exception {
         display = new Display();
-        sale = new Sale(display, new HashMap<String, String>() {{
+        sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
             put("12345", "$7.95");
             put("23456", "$12.50");
-        }});
+        }}));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class SellOneItemTest {
     @Test
     public void emptyBarcode() throws Exception {
         final Display display = new Display();
-        final Sale sale = new Sale(display, null);
+        final Sale sale = new Sale(display, new Catalog(null));
 
         sale.onBarcode("");
         assertEquals("Scanning error: empty barcode", display.getText());
@@ -79,10 +79,10 @@ public class SellOneItemTest {
         private Display display;
         private Map<String, String> pricesByBarcode;
 
-        public Sale(Display display, Map<String, String> pricesByBarcode) {
+        public Sale(Display display, Catalog catalog) {
             this.display = display;
             //Introduce barcode lookup table
-            this.pricesByBarcode = pricesByBarcode;
+            this.pricesByBarcode = catalog.getPricesByBarcode();
         }
 
         public void onBarcode(String barCode) {
@@ -113,6 +113,17 @@ public class SellOneItemTest {
 
     }
 
+    public static class Catalog {
+        private final Map<String, String> pricesByBarcode;
+
+        private Catalog(Map<String, String> pricesByBarcode) {
+            this.pricesByBarcode = pricesByBarcode;
+        }
+
+        public Map<String, String> getPricesByBarcode() {
+            return pricesByBarcode;
+        }
+    }
 }
 
 
