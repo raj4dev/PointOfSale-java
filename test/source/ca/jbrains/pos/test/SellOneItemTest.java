@@ -80,10 +80,10 @@ public class SellOneItemTest {
                 return; /*A guard clause*/
             }
 
-            if (pricesByBarcode.containsKey(barCode)) {
-                displayPrice(findPrice(barCode));
-            } else {
+            if (!pricesByBarcode.containsKey(barCode)) {
                 displayProductNotFoundMessage(barCode);
+            } else {
+                displayPrice(findPrice(barCode));
             }
 
             /*No Return value !!! Event handlers do NOT return values*/
