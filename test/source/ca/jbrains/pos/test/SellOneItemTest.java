@@ -1,10 +1,8 @@
 package ca.jbrains.pos.test;
 
-import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,7 +81,7 @@ public class SellOneItemTest {
             }
 
             if (pricesByBarcode.containsKey(barCode)) {
-                displayPrice(barCode);
+                findPriceThenDisplayPrice(barCode);
             } else {
                 displayProductNotFoundMessage(barCode);
             }
@@ -91,7 +89,7 @@ public class SellOneItemTest {
             /*No Return value !!! Event handlers do NOT return values*/
         }
 
-        private void displayPrice(String barCode) {
+        private void findPriceThenDisplayPrice(String barCode) {
             display.setText(pricesByBarcode.get(barCode));
         }
 
