@@ -83,7 +83,8 @@ public class SellOneItemTest {
             if (!pricesByBarcode.containsKey(barCode)) {
                 displayProductNotFoundMessage(barCode);
             } else {
-                displayPrice(findPrice(barCode));
+                final String priceAsText = findPrice(barCode);
+                displayPrice(priceAsText);
             }
 
             /*No Return value !!! Event handlers do NOT return values*/
