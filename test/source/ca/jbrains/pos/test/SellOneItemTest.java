@@ -120,6 +120,9 @@ public class SellOneItemTest {
             this.pricesByBarcode = pricesByBarcode;
         }
 
+        /*We created the Catalog class to encapsulate the "thing" which holds
+        * the prices-barcode information. So, the "thing" must not be accessible
+        * directly to code outside Catalog. Lets fix this soon.*/
         public Map<String, String> getPricesByBarcode() {
             return pricesByBarcode;
         }
