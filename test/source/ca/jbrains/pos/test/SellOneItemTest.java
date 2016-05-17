@@ -82,7 +82,6 @@ public class SellOneItemTest {
         public Sale(Display display, Catalog catalog) {
             this.display = display;
             this.catalog = catalog;
-            //Introduce barcode lookup table
         }
 
         public void onBarcode(String barCode) {
