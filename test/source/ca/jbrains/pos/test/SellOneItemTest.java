@@ -82,10 +82,12 @@ public class SellOneItemTest {
         }
 
         public void onBarcode(String barCode) {
+            /*###3*/
             if ("".equals(barCode)) {
                 display.setText("Scanning error: empty barcode");
                 return; /*A guard clause*/
             }
+
             if (pricesByBarcode.containsKey(barCode)) {
                 display.setText(pricesByBarcode.get(barCode));
             } else {
@@ -115,4 +117,8 @@ NOTES
     keyword not needed at the moment. Static needed so that we don't have to
     instantiate the above test class to use Display.
 
+###3 Code smell: "Refused Bequest": move this up the call stack? Perhaps onBarcode
+     should not check validity of a barcode & something else should do it. Now,
+     the 1st if validates data & the next one processes it. Maybe we should do
+     the data validation in another function. Lets see.
 */
