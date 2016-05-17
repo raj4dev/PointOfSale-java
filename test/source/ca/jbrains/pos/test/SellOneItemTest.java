@@ -80,10 +80,10 @@ public class SellOneItemTest {
                 return; /*A guard clause*/
             }
 
-            if (!pricesByBarcode.containsKey(barCode)) {
+            final String priceAsText = findPrice(barCode);
+            if (priceAsText == null) {
                 displayProductNotFoundMessage(barCode);
             } else {
-                final String priceAsText = findPrice(barCode);
                 displayPrice(priceAsText);
             }
 
