@@ -91,9 +91,8 @@ public class SellOneItemTest {
 
         /*The 'THEN' in findPriceThenDisplayPrice tells us that this method has too many
         * responsibilities. We will soon reduce its two resp. to just one.*/
-        private void findPriceThenDisplayPrice(String barCode) {
-            final String priceAsText = findPrice(barCode);/*Find price*/
-            displayPrice(priceAsText);/*Display price*/
+        private void findPriceDisplayPrice(String barCode) {
+            displayPrice(findPrice(barCode));
         }
 
         private void displayPrice(String priceAsText) {
