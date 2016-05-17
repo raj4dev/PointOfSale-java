@@ -81,18 +81,12 @@ public class SellOneItemTest {
             }
 
             if (pricesByBarcode.containsKey(barCode)) {
-                findPriceThenDisplayPrice(barCode);
+                displayPrice(findPrice(barCode));
             } else {
                 displayProductNotFoundMessage(barCode);
             }
 
             /*No Return value !!! Event handlers do NOT return values*/
-        }
-
-        /*The 'THEN' in findPriceThenDisplayPrice tells us that this method has too many
-        * responsibilities. We will soon reduce its two resp. to just one.*/
-        private void findPriceDisplayPrice(String barCode) {
-            displayPrice(findPrice(barCode));
         }
 
         private void displayPrice(String priceAsText) {
