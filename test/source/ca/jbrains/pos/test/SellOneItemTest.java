@@ -94,6 +94,13 @@ public class SellOneItemTest {
             display.setText(priceAsText);
         }
 
+        /*Notice that findPrice talks to pricesByBarcode object (Model) while the other three methods
+        * talk to Display object (View). The other three methods do not refer to any variable or method
+        * of Sale. Perhaps the three methods must be moved to Display & findPrice should be moved
+        * elsewhere ???
+        *
+        * Google "Feature Envy Code Smell" for more info.
+        * */
         private String findPrice(String barCode) {
             return pricesByBarcode.get(barCode);
         }
