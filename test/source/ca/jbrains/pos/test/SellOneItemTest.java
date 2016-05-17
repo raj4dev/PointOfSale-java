@@ -78,13 +78,11 @@ public class SellOneItemTest {
     public static class Sale {
         private final Catalog catalog;
         private Display display;
-        private Map<String, String> pricesByBarcode;
 
         public Sale(Display display, Catalog catalog) {
             this.display = display;
             this.catalog = catalog;
             //Introduce barcode lookup table
-            this.pricesByBarcode = catalog.getPricesByBarcode();
         }
 
         public void onBarcode(String barCode) {
@@ -94,7 +92,7 @@ public class SellOneItemTest {
                 return; /*A guard clause*/
             }
 
-            final String priceAsText = catalog.findPrice(barCode, this);
+            final String priceAsText = catalog.findPrice(barCode);
             if (priceAsText == null) {
                 display.displayProductNotFoundMessage(barCode);
             } else {
@@ -113,15 +111,8 @@ public class SellOneItemTest {
             this.pricesByBarcode = pricesByBarcode;
         }
 
-        /*We created the Catalog class to encapsulate the "thing" which holds
-        * the prices-barcode information. So, the "thing" must not be accessible
-        * directly to code outside Catalog. Lets fix this soon.*/
-        public Map<String, String> getPricesByBarcode() {
-            return pricesByBarcode;
-        }
-
-        public String findPrice(String barCode, Sale sale) {
-            return sale.pricesByBarcode.get(barCode);
+        public String findPrice(String barCode) {
+            return pricesByBarcode.get(barCode);
         }
     }
 }
