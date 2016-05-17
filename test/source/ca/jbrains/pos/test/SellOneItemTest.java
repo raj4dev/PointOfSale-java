@@ -89,8 +89,11 @@ public class SellOneItemTest {
             /*No Return value !!! Event handlers do NOT return values*/
         }
 
+        /*The 'THEN' in findPriceThenDisplayPrice tells us that this method has too many
+        * responsibilities. We will soon reduce its two resp. to just one.*/
         private void findPriceThenDisplayPrice(String barCode) {
-            display.setText(pricesByBarcode.get(barCode));
+            final String priceAsText = pricesByBarcode.get(barCode);/*Find price*/
+            display.setText(priceAsText);/*Display price*/
         }
 
         private void displayProductNotFoundMessage(String barCode) {
