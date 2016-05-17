@@ -76,11 +76,13 @@ public class SellOneItemTest {
 
     /*Refer notes ###2*/
     public static class Sale {
+        private final Catalog catalog;
         private Display display;
         private Map<String, String> pricesByBarcode;
 
         public Sale(Display display, Catalog catalog) {
             this.display = display;
+            this.catalog = catalog;
             //Introduce barcode lookup table
             this.pricesByBarcode = catalog.getPricesByBarcode();
         }
@@ -92,7 +94,7 @@ public class SellOneItemTest {
                 return; /*A guard clause*/
             }
 
-            final String priceAsText = findPrice(barCode);
+            final String priceAsText = catalog.findPrice(barCode, this);
             if (priceAsText == null) {
                 display.displayProductNotFoundMessage(barCode);
             } else {
@@ -100,15 +102,6 @@ public class SellOneItemTest {
             }
 
             /*No Return value !!! Event handlers do NOT return values*/
-        }
-
-        /*Notice that findPrice talks to pricesByBarcode object (Model). We should move findPrice
-        * somewhere else. But where ? We can't move it to HashMap like we did with the other three
-        * methods, because it is an inbuilt class of Java. Moreover, it does not sound like a method
-        * which should be on a Map. Looks like it should be in a new class !
-        * */
-        private String findPrice(String barCode) {
-            return pricesByBarcode.get(barCode);
         }
 
     }
@@ -125,6 +118,10 @@ public class SellOneItemTest {
         * directly to code outside Catalog. Lets fix this soon.*/
         public Map<String, String> getPricesByBarcode() {
             return pricesByBarcode;
+        }
+
+        public String findPrice(String barCode, Sale sale) {
+            return sale.pricesByBarcode.get(barCode);
         }
     }
 }
