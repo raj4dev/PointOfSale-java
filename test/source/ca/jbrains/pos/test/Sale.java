@@ -2,10 +2,10 @@ package ca.jbrains.pos.test;
 
 /*Refer notes ###2*/
 public class Sale {
-    private final SellOneItemTest.Catalog catalog;
+    private final ScanOneItemTest.Catalog catalog;
     private Display display;
 
-    public Sale(Display display, SellOneItemTest.Catalog catalog) {
+    public Sale(Display display, ScanOneItemTest.Catalog catalog) {
         this.display = display;
         this.catalog = catalog;
     }

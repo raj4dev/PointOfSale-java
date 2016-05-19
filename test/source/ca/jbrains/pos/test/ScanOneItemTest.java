@@ -8,7 +8,7 @@ import java.util.Map;
 
 import static junit.framework.TestCase.assertEquals;
 
-public class SellOneItemTest {
+public class ScanOneItemTest {
 
     private Display display;
     private Sale sale;
@@ -73,5 +73,5 @@ NOTES
     incoming event on some object. Perhaps a "sale" object ? Now, the
     onBarcode name comes from event naming rules of Java, i.e. onSomethingHappening.
     The barcode of 12345 is random. Its a dummy barcode for an item which costs $7.95.
-    
+
 */
