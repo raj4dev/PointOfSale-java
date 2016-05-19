@@ -32,7 +32,7 @@ public class Sale {
         if (priceAsText == null) {
             display.displayNoSaleInProgressMessage();
         } else {
-            display.text = "Total: $6.50";
+            display.text = "Total: " + priceAsText;
         }
     }
 }
