@@ -2,10 +2,11 @@ package ca.jbrains.pos.test;
 
 /*Refer notes ###2*/
 public class Sale {
-    private final ScanOneItemTest.Catalog catalog;
+    private final Catalog catalog;
     private Display display;
+    private String priceAsText;
 
-    public Sale(Display display, ScanOneItemTest.Catalog catalog) {
+    public Sale(Display display, Catalog catalog) {
         this.display = display;
         this.catalog = catalog;
     }
@@ -17,7 +18,7 @@ public class Sale {
             return; /*A guard clause*/
         }
 
-        final String priceAsText = catalog.findPrice(barCode);
+        priceAsText = catalog.findPrice(barCode);
         if (priceAsText == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
