@@ -32,13 +32,10 @@ public class Sale {
         if (priceAsText == null) {
             display.displayNoSaleInProgressMessage();
         } else {
-            displayPurchaseTotal(priceAsText);
+            display.displayPurchaseTotal(priceAsText);
         }
     }
 
-    private void displayPurchaseTotal(String priceAsText) {
-        display.text = "Total: " + priceAsText;
-    }
 }
 
 
