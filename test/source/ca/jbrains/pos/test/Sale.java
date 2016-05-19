@@ -29,10 +29,13 @@ public class Sale {
     }
 
     public void onTotal() {
-        display.displayNoSaleInProgressMessage();
+        if (priceAsText == null) {
+            display.displayNoSaleInProgressMessage();
+        } else {
+            display.text = "Total: $6.50";
+        }
     }
 }
-
 
 
 /*

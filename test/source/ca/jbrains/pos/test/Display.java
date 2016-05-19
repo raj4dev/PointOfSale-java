@@ -1,7 +1,7 @@
 package ca.jbrains.pos.test;
 
 public class Display {
-    private String text;
+    public String text;/*Make this private later*/
 
     public String getText() {
         return text;
