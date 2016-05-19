@@ -27,6 +27,9 @@ public class Sale {
         /*No Return value !!! Event handlers do NOT return values*/
     }
 
+    public void onTotal() {
+        display.displayNoSaleInProgressMessage();
+    }
 }
 
 
