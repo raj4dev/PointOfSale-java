@@ -29,8 +29,8 @@ public class Sale {
     }
 
     public void onTotal() {
-        boolean saleNotInProgress = !(priceAsText == null);
-        if (!saleNotInProgress) {
+        boolean saleInProgress = !(priceAsText == null);
+        if (!saleInProgress) {
             display.displayNoSaleInProgressMessage();
         } else {
             display.displayPurchaseTotal(priceAsText);
