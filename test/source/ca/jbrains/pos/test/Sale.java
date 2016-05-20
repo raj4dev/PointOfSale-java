@@ -4,7 +4,7 @@ package ca.jbrains.pos.test;
 public class Sale {
     private final Catalog catalog;
     private Display display;
-    private String priceAsText;
+    private String scannedPrice;
 
     public Sale(Display display, Catalog catalog) {
         this.display = display;
@@ -18,20 +18,20 @@ public class Sale {
             return; /*A guard clause*/
         }
 
-        priceAsText = catalog.findPrice(barCode);
-        if (priceAsText == null) {
+        scannedPrice = catalog.findPrice(barCode);
+        if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
-            display.displayPrice(priceAsText);
+            display.displayPrice(scannedPrice);
         }
 
         /*No Return value !!! Event handlers do NOT return values*/
     }
 
     public void onTotal() {
-        boolean saleInProgress = priceAsText != null;
+        boolean saleInProgress = scannedPrice != null;
         if (saleInProgress) {
-            display.displayPurchaseTotal(priceAsText);
+            display.displayPurchaseTotal(scannedPrice);
         } else {
             display.displayNoSaleInProgressMessage();
         }
