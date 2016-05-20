@@ -29,11 +29,11 @@ public class Sale {
     }
 
     public void onTotal() {
-        boolean saleInProgress = !(priceAsText == null);
-        if (!saleInProgress) {
-            display.displayNoSaleInProgressMessage();
-        } else {
+        boolean saleInProgress = priceAsText != null;
+        if (saleInProgress) {
             display.displayPurchaseTotal(priceAsText);
+        } else {
+            display.displayNoSaleInProgressMessage();
         }
     }
 
