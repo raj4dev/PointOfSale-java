@@ -9,40 +9,49 @@ import static junit.framework.TestCase.assertEquals;
 
 public class ScanOneItemTest {
 
-    private Display display;
-    private Sale sale;
-
-    @Before
-    public void setUp() throws Exception {
-        display = new Display();
-        sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
+    @Test
+    public void productFound() throws Exception {
+        Display display = new Display();
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
             put("12345", "$7.95");
             put("23456", "$12.50");
         }}));
-    }
 
-    @Test
-    public void productFound() throws Exception {
         sale.onBarcode("12345");/* ###1 */
         assertEquals("$7.95", display.getText());
     }
 
     @Test
     public void anotherProductFound() throws Exception {
+        Display display = new Display();
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
+            put("12345", "$7.95");
+            put("23456", "$12.50");
+        }}));
+
         sale.onBarcode("23456");
         assertEquals("$12.50", display.getText());
     }
 
     @Test
     public void productNotFound() throws Exception {
+        Display display = new Display();
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
+            put("12345", "$7.95");
+            put("23456", "$12.50");
+        }}));
+
         sale.onBarcode("99999");
         assertEquals("Product not found for 99999", display.getText());
     }
 
     @Test
     public void emptyBarcode() throws Exception {
-        final Display display = new Display();
-        final Sale sale = new Sale(display, new Catalog(null));
+        Display display = new Display();
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
+            put("12345", "$7.95");
+            put("23456", "$12.50");
+        }}));
 
         sale.onBarcode("");
         assertEquals("Scanning error: empty barcode", display.getText());
