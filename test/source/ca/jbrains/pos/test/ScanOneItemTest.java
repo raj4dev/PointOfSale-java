@@ -1,6 +1,5 @@
 package ca.jbrains.pos.test;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -15,7 +14,10 @@ public class ScanOneItemTest {
         Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
             put("12345", "$7.95");
             put("23456", "$12.50");
-        }}));
+        }}), new HashMap<String, Integer>() {{
+            put("12345", 795);
+            put("23456", 1250);
+        }});
 
         sale.onBarcode("12345");/* ###1 */
         assertEquals("$7.95", display.getText());
