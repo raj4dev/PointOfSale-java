@@ -35,7 +35,7 @@ public class Sale {
     public void onTotal() {
         boolean saleInProgress = scannedPrice != null;
         if (saleInProgress) {
-            display.displayPurchaseTotal(scannedPrice);
+            display.displayPurchaseTotal(formatMonetaryAmount(scannedPrice));
         } else {
             display.displayNoSaleInProgressMessage();
         }
