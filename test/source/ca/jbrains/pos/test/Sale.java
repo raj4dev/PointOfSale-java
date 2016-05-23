@@ -22,7 +22,7 @@ public class Sale {
         if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
-            display.displayPrice(scannedPrice);
+            display.displayPrice(formatPrice(scannedPrice));
         }
 
         /*No Return value !!! Event handlers do NOT return values*/
