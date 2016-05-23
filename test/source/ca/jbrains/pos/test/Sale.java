@@ -22,10 +22,14 @@ public class Sale {
         if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
-            display.displayPrice(formatPrice(scannedPrice));
+            display.displayPrice(formatMonetaryAmount(scannedPrice));
         }
 
         /*No Return value !!! Event handlers do NOT return values*/
+    }
+
+    private String formatMonetaryAmount(String priceAsText) {
+        return priceAsText;
     }
 
     public void onTotal() {
