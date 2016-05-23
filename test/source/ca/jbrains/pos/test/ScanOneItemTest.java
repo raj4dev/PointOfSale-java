@@ -17,7 +17,7 @@ public class ScanOneItemTest {
         }}, new HashMap<String, Integer>() {{
             put("12345", 795);
             put("23456", 1250);
-        }});
+        }}));
 
         sale.onBarcode("12345");/* ###1 */
         assertEquals("$7.95", display.getText());
@@ -29,6 +29,9 @@ public class ScanOneItemTest {
         Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
             put("12345", "$7.95");
             put("23456", "$12.50");
+        }}, new HashMap<String, Integer>() {{
+            put("12345", 795);
+            put("23456", 1250);
         }}));
 
         sale.onBarcode("23456");
@@ -41,6 +44,9 @@ public class ScanOneItemTest {
         Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
             put("12345", "$7.95");
             put("23456", "$12.50");
+        }}, new HashMap<String, Integer>() {{
+            put("12345", 795);
+            put("23456", 1250);
         }}));
 
         sale.onBarcode("99999");
@@ -53,6 +59,9 @@ public class ScanOneItemTest {
         Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
             put("12345", "$7.95");
             put("23456", "$12.50");
+        }}, new HashMap<String, Integer>() {{
+            put("12345", 795);
+            put("23456", 1250);
         }}));
 
         sale.onBarcode("");

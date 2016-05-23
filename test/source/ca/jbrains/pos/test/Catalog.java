@@ -4,19 +4,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Catalog {
-    private final Map<String, String> pricesByBarcode;
-    private final Map<String, String> pricesInCentsByBarcode;
+    private Map<String, String> pricesAsTextByBarcode;
+    private Map<String, Integer> pricesInCentsByBarcode;
 
-    /** @@deprecated */
+    /**
+     * @@deprecated
+     */
     Catalog(Map<String, String> pricesByBarcode) {
-        this.pricesByBarcode = pricesByBarcode;
+        this.pricesAsTextByBarcode = pricesByBarcode;
     }
 
-    public Catalog(HashMap<String, String> pricesAsTextByBarcode, HashMap<String, Integer> pricesInCentsByBarcode) {
+    Catalog(HashMap<String, String> pricesAsTextByBarcode, HashMap<String, Integer> pricesInCentsByBarcode) {
+        this.pricesAsTextByBarcode = pricesAsTextByBarcode;
+        this.pricesInCentsByBarcode = pricesInCentsByBarcode;
     }
-
 
     public String findPrice(String barCode) {
-        return pricesByBarcode.get(barCode);
+        return pricesAsTextByBarcode.get(barCode);
     }
 }
