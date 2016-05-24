@@ -28,7 +28,7 @@ public class Sale {
             result = Catalog.format(priceInCents);
         }
         scannedPrice = result;
-        if (scannedPrice == null) {
+        if (priceInCents == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
             display.displayPrice(scannedPrice);
