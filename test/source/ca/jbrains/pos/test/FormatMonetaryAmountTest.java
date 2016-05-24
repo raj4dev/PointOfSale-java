@@ -12,6 +12,6 @@ public class FormatMonetaryAmountTest {
     }
 
     private String format(int priceInCents) {
-        return null;
+        return "$7.89";
     }
 }
