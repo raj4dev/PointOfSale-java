@@ -49,9 +49,17 @@ public class FormatMonetaryAmountTest {
 * --------------------------------------------------------------
 *
 * ###1
-* $% means literally print whatever is on the left of %;
+*
 * We divide by 100.0 to get a decimal result & not a rounded off integer;
 * Not sure if d is needed. Code works without it;
-* .2f means print only two places after a decimal of the only argument of the
-* method. If the arg has only 1 decimal, then a zero will be added.
+*
+* $ prints the dollar sign as is;
+* The % marks the beginning of a 'format specifier' or the format in which a
+* a particular argument of format() is to be printed. The format specifier
+* ends with a 'converter';
+*
+* .2f is a 'format specifier'  which means print only two places after a decimal
+* of the desired argument. If the arg has only 1 decimal, then a zero will be added.
+* The f is a 'converter' which marks the end of the format specifier;
+*
 * */
