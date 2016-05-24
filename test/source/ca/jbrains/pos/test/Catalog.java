@@ -17,6 +17,6 @@ public class Catalog {
     }
 
     public String findPriceThenFormatPrice(String barCode) {
-        return pricesAsTextByBarcode.get(barCode);
+        return format(pricesInCentsByBarcode.get(barCode));
     }
 }
