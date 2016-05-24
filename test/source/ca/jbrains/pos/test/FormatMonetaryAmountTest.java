@@ -21,7 +21,7 @@ public class FormatMonetaryAmountTest {
         this.expectedFormattedPrice = expectedFormattedPrice;
     }
 
-    @Parameters(name = "Monetary amount {0} formats to '{1}'")
+    @Parameters(name = "Monetary amount {0} formats to {1}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{{78900, "$7.89"}});
     }
