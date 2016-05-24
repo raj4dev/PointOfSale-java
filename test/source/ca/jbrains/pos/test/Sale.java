@@ -22,20 +22,16 @@ public class Sale {
         if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
-            display.displayPrice(formatMonetaryAmount(scannedPrice));
+            display.displayPrice(scannedPrice);
         }
 
         /*No Return value !!! Event handlers do NOT return values*/
     }
 
-    private String formatMonetaryAmount(String priceAsText) {
-        return priceAsText;
-    }
-
     public void onTotal() {
         boolean saleInProgress = scannedPrice != null;
         if (saleInProgress) {
-            display.displayPurchaseTotal(formatMonetaryAmount(scannedPrice));
+            display.displayPurchaseTotal(scannedPrice);
         } else {
             display.displayNoSaleInProgressMessage();
         }
