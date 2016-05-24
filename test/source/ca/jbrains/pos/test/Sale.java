@@ -18,7 +18,16 @@ public class Sale {
             return; /*A guard clause*/
         }
 
-        scannedPrice = catalog.findPriceThenFormatPrice(barCode);
+        String result;
+        Integer priceInCents = catalog.findPrice(barCode);/*finding price*/
+
+        /*formatting price*/
+        if (priceInCents == null) {
+            result = null;
+        } else {
+            result = Catalog.format(priceInCents);
+        }
+        scannedPrice = result;
         if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {

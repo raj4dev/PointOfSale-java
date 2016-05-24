@@ -17,17 +17,6 @@ public class Catalog {
         return String.format("$%,.2f", priceInCents / 100.0d);/*###1*/
     }
 
-    public String findPriceThenFormatPrice(String barCode) {
-        Integer priceInCents = findPrice(barCode);/*finding price*/
-
-        /*formatting price*/
-        if (priceInCents == null) {
-            return null;
-        } else {
-            return format(priceInCents);
-        }
-    }
-
     private Integer findPrice(String barCode) {
         return pricesInCentsByBarcode.get(barCode);
     }
