@@ -37,7 +37,7 @@ public class FormatMonetaryAmountTest {
 
     @Test
     public void test() throws Exception {
-        assertEquals(expectedFormattedPrice, Catalog.format(priceInCents));
+        assertEquals(expectedFormattedPrice, Display.format(priceInCents));
     }
 
 }

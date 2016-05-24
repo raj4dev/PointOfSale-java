@@ -3,6 +3,11 @@ package ca.jbrains.pos.test;
 public class Display {
     public String text;/*Make this private later*/
 
+    //SMELL move this behavior somewhere else.
+    public static String format(int priceInCents) {
+        return String.format("$%,.2f", priceInCents / 100.0d);/*###1*/
+    }
+
     public String getText() {
         return text;
     }
