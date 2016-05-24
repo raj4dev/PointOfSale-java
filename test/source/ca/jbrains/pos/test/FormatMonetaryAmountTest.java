@@ -32,6 +32,6 @@ public class FormatMonetaryAmountTest {
     }
 
     private String format(int priceInCents) {
-        return "$7.89";
+        return "***BOOM***";
     }
 }
