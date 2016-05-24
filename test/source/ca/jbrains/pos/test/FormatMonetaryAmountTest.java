@@ -25,7 +25,11 @@ public class FormatMonetaryAmountTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {789, "$7.89"},
-                {520, "$5.20"}
+                {520, "$5.20"},
+                {400, "$4.00"},
+                {0, "$0.00"},
+                {2, "$0.02"},
+                {37, "$0.37"}
         });
     }
 
