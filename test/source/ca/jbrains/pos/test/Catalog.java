@@ -18,8 +18,9 @@ public class Catalog {
     }
 
     public String findPriceThenFormatPrice(String barCode) {
-        Integer priceInCents = pricesInCentsByBarcode.get(barCode);
+        Integer priceInCents = pricesInCentsByBarcode.get(barCode);/*finding price*/
 
+        /*formatting price*/
         if (priceInCents == null) {
             return null;
         } else {
