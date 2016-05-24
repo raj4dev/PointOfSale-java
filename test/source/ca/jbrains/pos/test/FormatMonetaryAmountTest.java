@@ -23,7 +23,10 @@ public class FormatMonetaryAmountTest {
 
     @Parameters(name = "Monetary amount {0} formats to {1}")
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{{789, "$7.89"}});
+        return Arrays.asList(new Object[][]{
+                {789, "$7.89"},
+                {520, "$5.20"}
+        });
     }
 
     @Test
@@ -32,6 +35,19 @@ public class FormatMonetaryAmountTest {
     }
 
     private String format(int priceInCents) {
-        return "$7.89";
+        return String.format("$%.2f", priceInCents/100.0d);/*###1*/
     }
 }
+
+/*
+* --------------------------------------------------------------
+* NOTES
+* --------------------------------------------------------------
+*
+* ###1
+* $% means literally print whatever is on the left of %;
+* We divide by 100.0 to get a decimal result & not a rounded off integer;
+* Not sure if d is needed. Code works without it;
+* .2f means print only two places after a decimal of the only argument of the
+* method. If the arg has only 1 decimal, then a zero will be added.
+* */
