@@ -4,11 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Catalog {
-    private Map<String, String> pricesAsTextByBarcode;
     private Map<String, Integer> pricesInCentsByBarcode;
 
-    Catalog(HashMap<String, String> pricesAsTextByBarcode, HashMap<String, Integer> pricesInCentsByBarcode) {
-        this.pricesAsTextByBarcode = pricesAsTextByBarcode;
+    Catalog(HashMap<String, Integer> pricesInCentsByBarcode) {
         this.pricesInCentsByBarcode = pricesInCentsByBarcode;
     }
 

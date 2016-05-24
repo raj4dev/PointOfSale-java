@@ -11,10 +11,7 @@ public class ScanOneItemTest {
     @Test
     public void productFound() throws Exception {
         Display display = new Display();
-        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
-            put("12345", "$7.95");
-            put("23456", "$12.50");
-        }}, new HashMap<String, Integer>() {{
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, Integer>() {{
             put("12345", 795);
             put("23456", 1250);
         }}));
@@ -26,10 +23,7 @@ public class ScanOneItemTest {
     @Test
     public void anotherProductFound() throws Exception {
         Display display = new Display();
-        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
-            put("12345", "$7.95");
-            put("23456", "$12.50");
-        }}, new HashMap<String, Integer>() {{
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, Integer>() {{
             put("12345", 795);
             put("23456", 1250);
         }}));
@@ -41,10 +35,7 @@ public class ScanOneItemTest {
     @Test
     public void productNotFound() throws Exception {
         Display display = new Display();
-        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
-            put("12345", "$7.95");
-            put("23456", "$12.50");
-        }}, new HashMap<String, Integer>() {{
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, Integer>() {{
             put("12345", 795);
             put("23456", 1250);
         }}));
@@ -56,10 +47,7 @@ public class ScanOneItemTest {
     @Test
     public void emptyBarcode() throws Exception {
         Display display = new Display();
-        Sale sale = new Sale(display, new Catalog(new HashMap<String, String>() {{
-            put("12345", "$7.95");
-            put("23456", "$12.50");
-        }}, new HashMap<String, Integer>() {{
+        Sale sale = new Sale(display, new Catalog(new HashMap<String, Integer>() {{
             put("12345", 795);
             put("23456", 1250);
         }}));

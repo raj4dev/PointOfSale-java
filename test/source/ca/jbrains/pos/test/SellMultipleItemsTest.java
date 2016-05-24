@@ -17,9 +17,7 @@ public class SellMultipleItemsTest {
 
     @Test
     public void oneItemFound() throws Exception {
-        Catalog catalog = new Catalog(new HashMap<String, String>() {{
-            put("12345", "$6.50");
-        }}, new HashMap<String, Integer>() {{
+        Catalog catalog = new Catalog(new HashMap<String, Integer>() {{
             put("12345", 650);
         }});
         Display display = new Display();
@@ -32,9 +30,7 @@ public class SellMultipleItemsTest {
 
     @Test
     public void oneItemNotFound() throws Exception {
-        Catalog catalog = new Catalog(new HashMap<String, String>() {{
-            put("12345", "$6.50");
-        }}, new HashMap<String, Integer>() {{
+        Catalog catalog = new Catalog(new HashMap<String, Integer>() {{
             put("12345", 650);
         }});
         Display display = new Display();
