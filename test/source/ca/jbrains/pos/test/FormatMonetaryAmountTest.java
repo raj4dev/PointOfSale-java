@@ -12,8 +12,12 @@ import static junit.framework.TestCase.assertEquals;
 @RunWith(Parameterized.class)
 public class FormatMonetaryAmountTest {
 
-    public FormatMonetaryAmountTest(int priceInCents, String expectedFormattedPrice) {
+    private final int priceInCents;
+    private final String expectedFormattedPrice;
 
+    public FormatMonetaryAmountTest(int priceInCents, String expectedFormattedPrice) {
+        this.priceInCents = priceInCents;
+        this.expectedFormattedPrice = expectedFormattedPrice;
     }
 
     @Parameterized.Parameters
