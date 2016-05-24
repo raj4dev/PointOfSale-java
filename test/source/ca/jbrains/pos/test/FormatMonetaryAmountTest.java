@@ -27,7 +27,7 @@ public class FormatMonetaryAmountTest {
 
     @Test
     public void test() throws Exception {
-        assertEquals("$7.89", format(789));
+        assertEquals(expectedFormattedPrice, format(priceInCents));
     }
 
     private String format(int priceInCents) {
