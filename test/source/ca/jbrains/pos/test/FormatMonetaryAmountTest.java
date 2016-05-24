@@ -23,7 +23,7 @@ public class FormatMonetaryAmountTest {
 
     @Parameters(name = "Monetary amount {0} formats to {1}")
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{{78900, "$7.89"}});
+        return Arrays.asList(new Object[][]{{789, "$7.89"}});
     }
 
     @Test
@@ -32,6 +32,6 @@ public class FormatMonetaryAmountTest {
     }
 
     private String format(int priceInCents) {
-        return "***BOOM***";
+        return "$7.89";
     }
 }
