@@ -18,7 +18,7 @@ public class Sale {
             return; /*A guard clause*/
         }
 
-        scannedPrice = catalog.findPrice(barCode);
+        scannedPrice = catalog.findPriceThenFormatPrice(barCode);
         if (scannedPrice == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
