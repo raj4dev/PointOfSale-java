@@ -27,10 +27,11 @@ public class Sale {
         } else {
             result = Catalog.format(priceInCents);
         }
-        scannedPrice = result;
+
         if (priceInCents == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
+            scannedPrice = Catalog.format(priceInCents);
             display.displayPrice(scannedPrice);
         }
 
