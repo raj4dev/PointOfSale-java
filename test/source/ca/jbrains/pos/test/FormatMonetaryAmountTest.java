@@ -30,7 +30,8 @@ public class FormatMonetaryAmountTest {
                 {0, "$0.00"},
                 {2, "$0.02"},
                 {37, "$0.37"},
-                {418976, "$4,189.76"}
+                {418976, "$4,189.76"},
+                {210832281, "$2,108,322.81"}
         });
     }
 
@@ -40,7 +41,7 @@ public class FormatMonetaryAmountTest {
     }
 
     private String format(int priceInCents) {
-        return String.format("$%.2f", priceInCents/100.0d);/*###1*/
+        return String.format("$%,.2f", priceInCents/100.0d);/*###1*/
     }
 }
 
@@ -59,8 +60,11 @@ public class FormatMonetaryAmountTest {
 * a particular argument of format() is to be printed. The format specifier
 * ends with a 'converter';
 *
-* .2f is a 'format specifier'  which means print only two places after a decimal
+* ,.2f is a 'format specifier'  which means print only two places after a decimal
 * of the desired argument. If the arg has only 1 decimal, then a zero will be added.
-* The f is a 'converter' which marks the end of the format specifier;
+* The f is a 'converter' which marks the end of the format specifier. The comma
+* tells format() to group the whole number part of the argument per locale-specific
+* grouping. That is, Americans will get "4,189.76", Germans will get '4.189.76'
+* & Swiss Germans will get 4'189'76 etc.
 *
 * */
