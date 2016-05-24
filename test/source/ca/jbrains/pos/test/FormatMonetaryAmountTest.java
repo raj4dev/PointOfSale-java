@@ -10,4 +10,8 @@ public class FormatMonetaryAmountTest {
     public void simplest() throws Exception {
         assertEquals("$7.89", format(789));
     }
+
+    private String format(int priceInCents) {
+        return null;
+    }
 }
