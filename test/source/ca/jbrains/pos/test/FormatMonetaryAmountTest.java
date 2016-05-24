@@ -3,6 +3,7 @@ package ca.jbrains.pos.test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,7 +21,7 @@ public class FormatMonetaryAmountTest {
         this.expectedFormattedPrice = expectedFormattedPrice;
     }
 
-    @Parameterized.Parameters
+    @Parameters(name = "Monetary amount {0} formats to '{1}'")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{{789, "$7.89"}});
     }
