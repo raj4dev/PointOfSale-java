@@ -24,7 +24,7 @@ public class Sale {
             display.displayProductNotFoundMessage(barCode);
         } else {
             scannedPrice = Display.format(priceInCents);/*formatting price*/
-            display.displayPrice(scannedPrice);
+            display.displayText(scannedPrice);
         }
 
         /*No Return value !!! Event handlers do NOT return values*/
