@@ -3,7 +3,7 @@ package ca.jbrains.pos.test;
 public class Display {
     private String text;
 
-    public static String format(int priceInCents) {
+    public static String formatMonetaryAmount(int priceInCents) {
         return String.format("$%,.2f", priceInCents / 100.0d);/*###1*/
     }
 
@@ -24,11 +24,11 @@ public class Display {
     }
 
     public void displayPurchaseTotal(Integer purchaseTotal) {
-        this.text = "Total: " + format(purchaseTotal);
+        this.text = "Total: " + formatMonetaryAmount(purchaseTotal);
     }
 
     public void displayPrice(Integer priceInCents) {
-        this.text = format(priceInCents);
+        this.text = formatMonetaryAmount(priceInCents);
     }
 }
 
@@ -43,14 +43,14 @@ public class Display {
 * Not sure if d is needed. Code works without it;
 *
 * $ prints the dollar sign as is;
-* The % marks the beginning of a 'format specifier' or the format in which a
-* a particular argument of format() is to be printed. The format specifier
+* The % marks the beginning of a 'formatMonetaryAmount specifier' or the formatMonetaryAmount in which a
+* a particular argument of formatMonetaryAmount() is to be printed. The formatMonetaryAmount specifier
 * ends with a 'converter';
 *
-* ,.2f is a 'format specifier'  which means print only two places after a decimal
+* ,.2f is a 'formatMonetaryAmount specifier'  which means print only two places after a decimal
 * of the desired argument. If the arg has only 1 decimal, then a zero will be added.
-* The f is a 'converter' which marks the end of the format specifier. The comma
-* tells format() to group the whole number part of the argument per locale-specific
+* The f is a 'converter' which marks the end of the formatMonetaryAmount specifier. The comma
+* tells formatMonetaryAmount() to group the whole number part of the argument per locale-specific
 * grouping. That is, Americans will get "4,189.76", Germans will get '4.189.76'
 * & Swiss Germans will get 4'189'76 etc.
 *
