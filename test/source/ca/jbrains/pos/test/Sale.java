@@ -51,7 +51,7 @@ public class Sale {
         return computePurchaseTotal(pendingPurchaseItemPrices);/*This approach works only when every sale has 1 item.*/
     }
 
-    private Integer computePurchaseTotal(Collection<Integer> purchaseItemPrices) {
+    public static Integer computePurchaseTotal(Collection<Integer> purchaseItemPrices) {
         return  purchaseItemPrices.iterator().next();
     }
 
