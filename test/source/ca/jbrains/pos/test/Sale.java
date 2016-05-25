@@ -37,10 +37,10 @@ public class Sale {
 
     public void onTotal() {
 
-        if (!pendingPurchaseItemPrices.isEmpty()) {
-            display.displayPurchaseTotal(pendingPurchaseTotal());
-        } else {
+        if (pendingPurchaseItemPrices.isEmpty()) {
             display.displayNoSaleInProgressMessage();
+        } else {
+            display.displayPurchaseTotal(pendingPurchaseTotal());
         }
     }
 
