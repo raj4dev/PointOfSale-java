@@ -24,10 +24,14 @@ public class Sale {
             display.displayProductNotFoundMessage(barCode);
         } else {
             scannedPrice = Display.format(priceInCents);/*formatting price*/
-            display.displayText(Display.format(priceInCents));
+            displayPrice(priceInCents);
         }
 
         /*No Return value !!! Event handlers do NOT return values*/
+    }
+
+    private void displayPrice(Integer priceInCents) {
+        display.displayText(Display.format(priceInCents));
     }
 
     public void onTotal() {
