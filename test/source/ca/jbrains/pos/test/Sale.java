@@ -30,7 +30,7 @@ public class Sale {
         /*No Return value !!! Event handlers do NOT return values*/
     }
 
-    private void displayPrice(Integer priceInCents) {
+    public void displayPrice(Integer priceInCents) {
         display.displayText(Display.format(priceInCents));
     }
 
