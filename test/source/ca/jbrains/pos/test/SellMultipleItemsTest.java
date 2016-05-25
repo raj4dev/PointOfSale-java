@@ -46,7 +46,11 @@ public class SellMultipleItemsTest {
     public void severalItemsAllNotFound() throws Exception {
         Display display = new Display();
         /*We can have an empty catalog because the items in the test are supposed to be missing from the catalog.*/
-        Sale sale = new Sale(display, emptyCatalog());
+        Sale sale = new Sale(display, catalogWithoutBarCodes(
+                "product you won't find.",
+                "another product you won't find.",
+                "yet another product you won't find."
+        ));
 
         /*We can use any random characters for a barcode instead of a number for this test case because
         * we have no rules for making barcodes at the moment. The barcodes below are self documenting.*/
@@ -56,6 +60,10 @@ public class SellMultipleItemsTest {
         sale.onTotal();
 
         assertEquals("No sale in progress. Try scanning a product.", display.getText());
+    }
+
+    private Catalog catalogWithoutBarCodes(String ...barcodesToExclude) {
+        return emptyCatalog();
     }
 
     private Catalog emptyCatalog() {
