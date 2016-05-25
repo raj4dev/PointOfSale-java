@@ -1,10 +1,14 @@
 package ca.jbrains.pos.test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /*Refer notes ###2*/
 public class Sale {
     private final Catalog catalog;
     private Display display;
     private String scannedPrice;
+    private Collection<Integer> scannedPrices = new ArrayList<Integer>();
 
     public Sale(Display display, Catalog catalog) {
         this.display = display;
@@ -23,7 +27,7 @@ public class Sale {
         if (priceInCents == null) {
             display.displayProductNotFoundMessage(barCode);
         } else {
-            scannedPrice = Display.format(priceInCents);/*formatting price*/
+            scannedPrices.add(priceInCents);
             display.displayPrice(priceInCents);
         }
 
@@ -31,9 +35,10 @@ public class Sale {
     }
 
     public void onTotal() {
-        boolean saleInProgress = scannedPrice != null;
+        boolean saleInProgress = !scannedPrices.isEmpty();
+
         if (saleInProgress) {
-            display.displayPurchaseTotal(scannedPrice);
+            display.displayPurchaseTotal(Display.format(scannedPrices.iterator().next()));
         } else {
             display.displayNoSaleInProgressMessage();
         }
