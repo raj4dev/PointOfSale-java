@@ -38,10 +38,14 @@ public class Sale {
         boolean saleInProgress = !pendingPurchaseItemPrices.isEmpty();
 
         if (saleInProgress) {
-            display.displayPurchaseTotal(Display.format(pendingPurchaseItemPrices.iterator().next()));
+            display.displayPurchaseTotal(Display.format(pendingPurchaseTotal()));
         } else {
             display.displayNoSaleInProgressMessage();
         }
+    }
+
+    private Integer pendingPurchaseTotal() {
+        return pendingPurchaseItemPrices.iterator().next();/*This approach works only when every sale has 1 item.*/
     }
 
 }
