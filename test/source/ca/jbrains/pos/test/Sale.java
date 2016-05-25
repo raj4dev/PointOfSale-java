@@ -36,8 +36,10 @@ public class Sale {
     }
 
     public void onTotal() {
+        /*Should have inlined this in the if. Not a problem. Maybe will do in the future.*/
+        boolean noSaleInProgress = pendingPurchaseItemPrices.isEmpty();
 
-        if (pendingPurchaseItemPrices.isEmpty()) {
+        if (noSaleInProgress) {
             display.displayNoSaleInProgressMessage();
         } else {
             display.displayPurchaseTotal(pendingPurchaseTotal());
