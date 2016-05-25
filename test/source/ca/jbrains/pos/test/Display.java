@@ -28,7 +28,7 @@ public class Display {
         this.text = "No sale in progress. Try scanning a product.";
     }
 
-    public void displayPurchaseTotal(String priceAsText) {
+    public void displayPurchaseTotal(String priceAsText, Integer purchaseTotal) {
         this.text = "Total: " + priceAsText;
     }
 

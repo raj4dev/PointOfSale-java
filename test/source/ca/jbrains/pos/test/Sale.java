@@ -38,7 +38,7 @@ public class Sale {
         boolean saleInProgress = !pendingPurchaseItemPrices.isEmpty();
 
         if (saleInProgress) {
-            display.displayPurchaseTotal(Display.format(pendingPurchaseTotal()));
+            display.displayPurchaseTotal(Display.format(pendingPurchaseTotal()), pendingPurchaseTotal());
         } else {
             display.displayNoSaleInProgressMessage();
         }
