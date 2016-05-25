@@ -28,8 +28,8 @@ public class Display {
         this.text = "No sale in progress. Try scanning a product.";
     }
 
-    public void displayPurchaseTotal(String priceAsText, Integer purchaseTotal) {
-        this.text = "Total: " + priceAsText;
+    public void displayPurchaseTotal(Integer purchaseTotal) {
+        this.text = "Total: " + format(purchaseTotal);
     }
 
     public void displayPrice(Integer priceInCents) {

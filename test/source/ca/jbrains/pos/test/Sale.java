@@ -38,12 +38,13 @@ public class Sale {
         boolean saleInProgress = !pendingPurchaseItemPrices.isEmpty();
 
         if (saleInProgress) {
-            display.displayPurchaseTotal(Display.format(pendingPurchaseTotal()), pendingPurchaseTotal());
+            display.displayPurchaseTotal(pendingPurchaseTotal());
         } else {
             display.displayNoSaleInProgressMessage();
         }
     }
 
+    //REFACTOR looks like model (MVC) behavior to me.
     private Integer pendingPurchaseTotal() {
         return pendingPurchaseItemPrices.iterator().next();/*This approach works only when every sale has 1 item.*/
     }
