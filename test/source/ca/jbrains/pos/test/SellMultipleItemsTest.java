@@ -80,6 +80,24 @@ public class SellMultipleItemsTest {
         assertEquals("Total: $24.55", display.getText());
     }
 
+    @Test
+    public void testName() throws Exception {
+        Catalog catalog = new Catalog(new HashMap<String, Integer>() {{
+            put("1", 1200);
+            put("2", 500);
+        }});
+
+        Display display = new Display();
+        Sale sale = new Sale(display, catalog);
+
+        sale.onBarcode("1");
+        sale.onBarcode("you don't know this product.");
+        sale.onBarcode("2");
+        sale.onTotal();
+
+        assertEquals("Total: $17.00", display.getText());
+    }
+
     private Catalog catalogWithoutBarCodes(String ...barcodesToExclude) {
         return emptyCatalog();
     }
