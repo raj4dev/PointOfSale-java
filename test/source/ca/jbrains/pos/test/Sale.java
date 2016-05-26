@@ -1,7 +1,5 @@
 package ca.jbrains.pos.test;
 
-import com.sun.org.apache.bcel.internal.generic.INEG;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -53,7 +51,7 @@ public class Sale {
     }
 
     public static Integer computePurchaseTotal(Collection<Integer> purchaseItemPrices) {
-        if (purchaseItemPrices.isEmpty())
+        if (false)
             return 0;
         else if(purchaseItemPrices.size() == 1)
             return purchaseItemPrices.iterator().next();
