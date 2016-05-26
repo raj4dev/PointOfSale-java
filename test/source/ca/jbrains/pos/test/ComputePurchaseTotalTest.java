@@ -21,7 +21,7 @@ public class ComputePurchaseTotalTest {
 
     @Test
     public void addSeveralItems() throws Exception {
-        assertEquals(795, computePurchaseTotal(Arrays.asList(850,1275,330)));
+        assertEquals(5450, computePurchaseTotal(Arrays.asList(2850,1275,1325)));
     }
 
     /*Added this method because both args of assertEquals must be long or int*/
