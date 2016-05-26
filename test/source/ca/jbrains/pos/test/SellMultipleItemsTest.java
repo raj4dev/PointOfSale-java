@@ -98,6 +98,24 @@ public class SellMultipleItemsTest {
         assertEquals("Total: $17.00", display.getText());
     }
 
+    @Test
+    public void severalItemsOfWhichOneIsEmpty() throws Exception {
+        Catalog catalog = new Catalog(new HashMap<String, Integer>() {{
+            put("1", 3100);
+            put("2", 460);
+        }});
+
+        Display display = new Display();
+        Sale sale = new Sale(display, catalog);
+
+        sale.onBarcode("1");
+        sale.onBarcode("");
+        sale.onBarcode("2");
+        sale.onTotal();
+
+        assertEquals("Total: $35.60", display.getText());
+    }
+
     private Catalog catalogWithoutBarCodes(String ...barcodesToExclude) {
         return emptyCatalog();
     }
