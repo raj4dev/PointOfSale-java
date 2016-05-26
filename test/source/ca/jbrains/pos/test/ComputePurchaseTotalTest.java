@@ -13,6 +13,11 @@ public class ComputePurchaseTotalTest {
         assertEquals(0, computePurchaseTotal(Collections.<Integer>emptyList()));
     }
 
+    @Test
+    public void oneItem() throws Exception {
+        assertEquals(795, computePurchaseTotal(Collections.singletonList(795)));
+    }
+
     /*Added this method because both args of assertEquals must be long or int*/
     private int computePurchaseTotal(List<Integer> purchaseItemPrices) {
         return Sale.computePurchaseTotal(purchaseItemPrices).intValue();
