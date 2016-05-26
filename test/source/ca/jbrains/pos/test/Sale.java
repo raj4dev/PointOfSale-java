@@ -51,7 +51,10 @@ public class Sale {
     }
 
     public static Integer computePurchaseTotal(Collection<Integer> purchaseItemPrices) {
-        return  purchaseItemPrices.iterator().next();
+        if (purchaseItemPrices.isEmpty())
+            return 0;
+        else
+            return purchaseItemPrices.iterator().next();
     }
 
 }
