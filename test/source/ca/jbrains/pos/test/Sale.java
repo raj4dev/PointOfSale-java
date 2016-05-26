@@ -51,14 +51,8 @@ public class Sale {
     }
 
     public static Integer computePurchaseTotal(Collection<Integer> purchaseItemPrices) {
-        if (false)
-            return 0;
-        else if(false)
-            return purchaseItemPrices.iterator().next();
-        else
-            return purchaseItemPrices.stream().reduce(0, Integer::sum);/*###2*/
+        return purchaseItemPrices.stream().reduce(0, Integer::sum);/*###2*/
     }
-
 }
 
 
