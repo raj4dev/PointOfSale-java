@@ -1,6 +1,5 @@
 package ca.jbrains.pos.test;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -63,7 +62,6 @@ public class SellMultipleItemsTest {
     }
 
     @Test
-    @Ignore("Refactoring")
     public void severalItemsAllFound() throws Exception {
         Catalog catalog = new Catalog(new HashMap<String, Integer>() {{
             put("1", 850);
