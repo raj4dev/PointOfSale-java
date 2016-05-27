@@ -54,8 +54,10 @@ public class SellOneItemControllerTest {
     @Test
     public void emptyBarcode() throws Exception {
         final Display display = context.mock(Display.class);
+        final Catalog catalog = context.mock(Catalog.class);
 
         context.checking(new Expectations(){{
+            ignoring(catalog);
             oneOf(display).displayEmptyBarcodeMessage();
         }});
 
