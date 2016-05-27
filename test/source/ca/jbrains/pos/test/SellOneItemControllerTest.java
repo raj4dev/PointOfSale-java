@@ -71,7 +71,13 @@ public class SellOneItemControllerTest {
         }
 
         public void onBarcode(String barCode) {
-            display.displayPrice(catalog.findPrice(barCode));/*We use whichever price the catalog gives us.*/
+            Price price = catalog.findPrice(barCode);
+
+            if(price == null){
+                display.displayProductNotFoundMessage(barCode);
+            }else {
+                display.displayPrice(price);
+            }
         }
     }
 
