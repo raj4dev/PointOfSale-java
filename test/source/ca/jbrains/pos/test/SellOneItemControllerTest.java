@@ -31,6 +31,26 @@ public class SellOneItemControllerTest {
         saleController.onBarcode("12345");
     }
 
+    @Test
+    public void productNotFound() throws Exception {
+
+        final Catalog catalog = context.mock(Catalog.class);
+        final Display display = context.mock(Display.class);
+
+        context.checking(new Expectations(){{
+            /*1. pretend there is no price for this 'barcode'....*/
+            allowing(catalog).findPrice(with("::product not found::"));
+            will(returnValue(null));
+
+            /*3...something should display the message 'product not found' & mention that barcode.*/
+            oneOf(display).displayProductNotFoundMessage(with("::product not found::"));
+        }});
+
+        SaleController saleController = new SaleController(display, catalog);
+        /*2...then when I scan that 'barcode'...*/
+        saleController.onBarcode("::product not found::");
+    }
+
     public interface Catalog {
         Price findPrice(String barCode);
     }
