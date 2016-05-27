@@ -20,7 +20,7 @@ public class SellOneItemControllerTest {
         /* Assertion part of the test.*/
         /* With JMock, assertion comes before the action. Weird :)*/
         context.checking(new Expectations() {{
-            allowing(catalog).findPrice(with("12345"));/*###2*/
+            allowing(catalog).findPrice(with("::product found::"));/*###2*/
             will(returnValue(irrelevantPrice));/*###2*/
 
             oneOf(display).displayPrice(with(irrelevantPrice));/*###1*/
@@ -28,7 +28,7 @@ public class SellOneItemControllerTest {
 
         /* Action part of the test*/
         SaleController saleController = new SaleController(display, catalog);
-        saleController.onBarcode("12345");
+        saleController.onBarcode("::product found::");
     }
 
     @Test
