@@ -40,8 +40,11 @@ public class SellOneItemControllerTest {
     }
 
     public static class SaleController {
+        private Display display;
+        private Catalog catalog;
+
         public void onBarcode(String barCode) {
-            //display.displayPrice(???);/*This should pass the test. But, which Price do we use?*/
+            display.displayPrice(catalog.findPrice(barCode));/*We use whichever price the catalog gives us.*/
         }
     }
 
