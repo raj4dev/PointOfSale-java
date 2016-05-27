@@ -48,6 +48,11 @@ public class SellOneItemControllerTest {
         public static Price cents(int centsValue) {
             return new Price();
         }
+
+        @Override
+        public String toString() {
+            return "a Price";
+        }
     }
 
 }
@@ -75,9 +80,9 @@ of software components (or modules) that a module undergoing tests depends on.
 
 ###Test output
 java.lang.AssertionError: not all expectations were satisfied expectations:
-allowed, never invoked: catalog.findPrice("12345"); returns <ca.jbrains.pos.test.SellOneItemControllerTest$Price@726f3b58>
+allowed, never invoked: catalog.findPrice("12345"); returns <a Price>
     Meaning: You said you'd call findPrice(), but you did not.
-! expected once, never invoked: display.displayPrice(<ca.jbrains.pos.test.SellOneItemControllerTest$Price@442d9b6e>)
+! expected once, never invoked: display.displayPrice(<a Price>)
 what happened before this: nothing!...etc.
     Meaning: You said you'd call displayPrice(), but you did not.
 
