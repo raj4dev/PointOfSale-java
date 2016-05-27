@@ -1,5 +1,6 @@
 package ca.jbrains.pos.test;
 
+import com.sun.org.apache.xml.internal.resolver.Catalog;
 import org.jmock.Expectations;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
@@ -13,18 +14,36 @@ public class SellOneItemControllerTest {
     @Test
     public void productNotFound() throws Exception {
 
+        final Catalog catalog = context.mock(Catalog.class);
+        final Display display = context.mock(Display.class);
+
         /* Assertion part of the test.*/
         /* With JMock, assertion comes before the action. Weird :)*/
         context.checking(new Expectations(){{
             allowing(catalog).findPrice(with("12345"));/*###2*/
             will(returnValue(Price.cents(795)));/*###2*/
 
-            oneOf(display).displaPrice(with(Price.cents(795)));/*###1*/
+            oneOf(display).displayPrice(with(Price.cents(795)));/*###1*/
         }});
 
         /* Action part of the test*/
         saleController.onBarcode("12345");
     }
+
+    public interface Catalog {
+        void findPrice(String barCode);
+    }
+
+    public interface Display {
+        void displayPrice(Price price);
+    }
+
+    public static class Price {
+        public static Price cents(int centsValue) {
+            return new Price();
+        }
+    }
+
 }
 
 /*
