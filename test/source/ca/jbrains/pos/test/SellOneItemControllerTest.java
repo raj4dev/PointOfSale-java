@@ -85,6 +85,11 @@ public class SellOneItemControllerTest {
         }
 
         public void onBarcode(String barCode) {
+            if("".equals(barCode)){
+                display.displayEmptyBarcodeMessage();
+                return;
+            }
+
             Price price = catalog.findPrice(barCode);
 
             if(price == null){
