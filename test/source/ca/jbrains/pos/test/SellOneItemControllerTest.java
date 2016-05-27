@@ -73,4 +73,12 @@ or not. But, if we call findPrice with "12345", then returned value should be 79
 Btw, the first line is a method stub.  Test stubs are programs that simulate the behaviors
 of software components (or modules) that a module undergoing tests depends on.
 
+###Test output
+java.lang.AssertionError: not all expectations were satisfied expectations:
+allowed, never invoked: catalog.findPrice("12345"); returns <ca.jbrains.pos.test.SellOneItemControllerTest$Price@726f3b58>
+    Meaning: You said you'd call findPrice(), but you did not.
+! expected once, never invoked: display.displayPrice(<ca.jbrains.pos.test.SellOneItemControllerTest$Price@442d9b6e>)
+what happened before this: nothing!...etc.
+    Meaning: You said you'd call displayPrice(), but you did not.
+
 */
