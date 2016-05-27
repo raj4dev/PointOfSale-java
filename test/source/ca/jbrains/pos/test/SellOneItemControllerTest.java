@@ -51,6 +51,18 @@ public class SellOneItemControllerTest {
         saleController.onBarcode("::product not found::");
     }
 
+    @Test
+    public void emptyBarcode() throws Exception {
+        final Display display = context.mock(Display.class);
+
+        context.checking(new Expectations(){{
+            oneOf(display).displayEmptyBarcodeMessage();
+        }});
+
+        SaleController saleController = new SaleController(display, null);
+        saleController.onBarcode("");
+    }
+
     public interface Catalog {
         Price findPrice(String barCode);
     }
