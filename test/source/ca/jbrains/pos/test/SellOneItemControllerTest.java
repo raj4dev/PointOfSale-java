@@ -11,7 +11,7 @@ public class SellOneItemControllerTest {
     public final JUnitRuleMockery context = new JUnitRuleMockery();
 
     @Test
-    public void productNotFound() throws Exception {
+    public void productFound() throws Exception {
 
         final Catalog catalog = context.mock(Catalog.class);
         final Display display = context.mock(Display.class);
