@@ -10,17 +10,17 @@ public class FindPriceInMemoryCatalogTest {
     @Test
     public void productFound() throws Exception {
 
-        SellOneItemControllerTest.Price foundPrice = SellOneItemControllerTest.Price.cents(1250);
+        Price foundPrice = Price.cents(1250);
         InMemoryCatalog catalog = new InMemoryCatalog(Collections.singletonMap("12345", foundPrice));
         Assert.assertEquals(foundPrice, catalog.findPrice("12345"));
     }
 
     public static class InMemoryCatalog {
-        public InMemoryCatalog(Map<String, SellOneItemControllerTest.Price> pricesByBarcode) {
+        public InMemoryCatalog(Map<String, Price> pricesByBarcode) {
         }
 
-        public SellOneItemControllerTest.Price findPrice(String barcode) {
-            return SellOneItemControllerTest.Price.cents(0);/*Any random price object*/
+        public Price findPrice(String barcode) {
+            return Price.cents(0);/*Any random price object*/
         }
     }
 
