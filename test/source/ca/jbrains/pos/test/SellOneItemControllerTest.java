@@ -15,14 +15,15 @@ public class SellOneItemControllerTest {
 
         final Catalog catalog = context.mock(Catalog.class);
         final Display display = context.mock(Display.class);
+        final Price cents = Price.cents(795);
 
         /* Assertion part of the test.*/
         /* With JMock, assertion comes before the action. Weird :)*/
-        context.checking(new Expectations(){{
+        context.checking(new Expectations() {{
             allowing(catalog).findPrice(with("12345"));/*###2*/
-            will(returnValue(Price.cents(795)));/*###2*/
+            will(returnValue(cents));/*###2*/
 
-            oneOf(display).displayPrice(with(Price.cents(795)));/*###1*/
+            oneOf(display).displayPrice(with(cents));/*###1*/
         }});
 
         /* Action part of the test*/
@@ -40,7 +41,7 @@ public class SellOneItemControllerTest {
 
     public static class SaleController {
         public void onBarcode(String barCode) {
-
+            //display.displayPrice(???);/*This should pass the test. But, which Price do we use?*/
         }
     }
 
