@@ -37,7 +37,7 @@ public class SellOneItemControllerTest {
         final Catalog catalog = context.mock(Catalog.class);
         final Display display = context.mock(Display.class);
 
-        context.checking(new Expectations(){{
+        context.checking(new Expectations() {{
             /*1. pretend there is no price for this 'barcode'....*/
             allowing(catalog).findPrice(with("::product not found::"));
             will(returnValue(null));
@@ -54,10 +54,8 @@ public class SellOneItemControllerTest {
     @Test
     public void emptyBarcode() throws Exception {
         final Display display = context.mock(Display.class);
-        final Catalog catalog = context.mock(Catalog.class);
 
-        context.checking(new Expectations(){{
-            ignoring(catalog);
+        context.checking(new Expectations() {{
             oneOf(display).displayEmptyBarcodeMessage();
         }});
 
@@ -87,16 +85,17 @@ public class SellOneItemControllerTest {
         }
 
         public void onBarcode(String barCode) {
-            if("".equals(barCode)){
+            //CODE SMELL Should I get an empty barcode at all?
+            if ("".equals(barCode)) {
                 display.displayEmptyBarcodeMessage();
                 return;
             }
 
             Price price = catalog.findPrice(barCode);
 
-            if(price == null){
+            if (price == null) {
                 display.displayProductNotFoundMessage(barCode);
-            }else {
+            } else {
                 display.displayPrice(price);
             }
         }
