@@ -1,6 +1,5 @@
 package ca.jbrains.pos.test;
 
-import com.sun.org.apache.xml.internal.resolver.Catalog;
 import org.jmock.Expectations;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
@@ -27,6 +26,7 @@ public class SellOneItemControllerTest {
         }});
 
         /* Action part of the test*/
+        SaleController saleController = new SaleController();
         saleController.onBarcode("12345");
     }
 
@@ -36,6 +36,12 @@ public class SellOneItemControllerTest {
 
     public interface Display {
         void displayPrice(Price price);
+    }
+
+    public static class SaleController {
+        public void onBarcode(String barCode) {
+
+        }
     }
 
     public static class Price {
