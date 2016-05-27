@@ -15,24 +15,24 @@ public class SellOneItemControllerTest {
 
         final Catalog catalog = context.mock(Catalog.class);
         final Display display = context.mock(Display.class);
-        final Price cents = Price.cents(795);
+        final Price irrelevantPrice = Price.cents(795);
 
         /* Assertion part of the test.*/
         /* With JMock, assertion comes before the action. Weird :)*/
         context.checking(new Expectations() {{
             allowing(catalog).findPrice(with("12345"));/*###2*/
-            will(returnValue(cents));/*###2*/
+            will(returnValue(irrelevantPrice));/*###2*/
 
-            oneOf(display).displayPrice(with(cents));/*###1*/
+            oneOf(display).displayPrice(with(irrelevantPrice));/*###1*/
         }});
 
         /* Action part of the test*/
-        SaleController saleController = new SaleController();
+        SaleController saleController = new SaleController(display, catalog);
         saleController.onBarcode("12345");
     }
 
     public interface Catalog {
-        void findPrice(String barCode);
+        Price findPrice(String barCode);
     }
 
     public interface Display {
@@ -42,6 +42,11 @@ public class SellOneItemControllerTest {
     public static class SaleController {
         private Display display;
         private Catalog catalog;
+
+        public SaleController(Display display, Catalog catalog) {
+            this.display = display;
+            this.catalog = catalog;
+        }
 
         public void onBarcode(String barCode) {
             display.displayPrice(catalog.findPrice(barCode));/*We use whichever price the catalog gives us.*/
