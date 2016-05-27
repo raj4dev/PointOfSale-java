@@ -21,7 +21,7 @@ public class FindPriceInMemoryCatalogTest {
         Assert.assertEquals(null, catalog.findPrice("12345"));
     }
 
-    public static class InMemoryCatalog implements SellOneItemControllerTest.Catalog {
+    public static class InMemoryCatalog implements Catalog {
         private Map<String, Price> pricesByBarcode;
 
         public InMemoryCatalog(Map<String, Price> pricesByBarcode) {
