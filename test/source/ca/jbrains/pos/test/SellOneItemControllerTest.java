@@ -109,12 +109,27 @@ or not. But, if we call findPrice with "12345", then returned value should be 79
 Btw, the first line is a method stub.  Test stubs are programs that simulate the behaviors
 of software components (or modules) that a module undergoing tests depends on.
 
-###Test output
+###Test output: productFound
+
 java.lang.AssertionError: not all expectations were satisfied expectations:
 allowed, never invoked: catalog.findPrice("12345"); returns <a Price>
-    Meaning: You said you'd call findPrice(), but you did not.
+----Meaning: You said you'd call findPrice(), but you did not.
+
 ! expected once, never invoked: display.displayPrice(<a Price>)
 what happened before this: nothing!...etc.
-    Meaning: You said you'd call displayPrice(), but you did not.
+----Meaning: You said you'd call displayPrice(), but you did not.
+
+###Test output: productNotFound
+
+java.lang.AssertionError: unexpected invocation: display.displayPrice(null)
+expectations:
+---- jmock tells us that we invoked something other than the method we were supposed to
+invoke (display.displayProductNotFoundMessage).
+
+  allowed, already invoked 1 time: catalog.findPrice("::product not found::"); returns null
+  expected once, never invoked: display.displayProductNotFoundMessage("::product not found::")
+what happened before this:
+  catalog.findPrice("::product not found::")
+
 
 */
