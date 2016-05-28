@@ -15,7 +15,7 @@ public class FindPriceInMemoryCatalogTest {
         Assert.assertEquals(foundPrice, catalog.findPrice("12345"));
     }
 
-    private InMemoryCatalog catalogWith(String barcode, Price price) {
+    private Catalog catalogWith(String barcode, Price price) {
         return new InMemoryCatalog(Collections.singletonMap(barcode, price));
     }
 
