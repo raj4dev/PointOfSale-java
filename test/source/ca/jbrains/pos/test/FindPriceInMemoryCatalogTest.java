@@ -1,31 +1,17 @@
 package ca.jbrains.pos.test;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.Collections;
 import java.util.Map;
 
-public class FindPriceInMemoryCatalogTest {
-    @Test
-    public void productFound() throws Exception {
+public class FindPriceInMemoryCatalogTest extends FindPriceInCatalogContract {
 
-        Price foundPrice = Price.cents(1250);
-        Catalog catalog = catalogWith("12345", foundPrice);
-        Assert.assertEquals(foundPrice, catalog.findPrice("12345"));
-    }
-
-    private Catalog catalogWith(String barcode, Price price) {
+    @Override
+    protected Catalog catalogWith(String barcode, Price price) {
         return new InMemoryCatalog(Collections.singletonMap(barcode, price));
     }
 
-    @Test
-    public void productNotFound() throws Exception {
-        Catalog catalog = catalogWithout("12345");
-        Assert.assertEquals(null, catalog.findPrice("12345"));
-    }
-
-    private Catalog catalogWithout(String barcodeToAvoid) {
+    @Override
+    protected Catalog catalogWithout(String barcodeToAvoid) {
         return new InMemoryCatalog(Collections.singletonMap("anything but " + barcodeToAvoid, Price.cents(0)));
     }
 
