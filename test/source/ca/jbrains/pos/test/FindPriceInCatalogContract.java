@@ -6,7 +6,6 @@ import org.junit.Test;
 public abstract class FindPriceInCatalogContract {
     @Test
     public void productFound() throws Exception {
-
         Price foundPrice = Price.cents(1250);
         Catalog catalog = catalogWith("12345", foundPrice);
         Assert.assertEquals(foundPrice, catalog.findPrice("12345"));
