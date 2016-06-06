@@ -28,8 +28,6 @@ public class LearnHowToHijackSystemOutTest {
 
     @Test
     public void singleLineOfText() throws Exception {
-        System.out.println("One line of text.");
-
         //Action of this test should be writing a single line to System.out.
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
@@ -43,11 +41,9 @@ public class LearnHowToHijackSystemOutTest {
     @Test
     public void severalLinesOfText() throws Exception {
         /*
-        * This test checks if the code changes we made to avoid the problem of newline character
-        * work for multiple line input or not.
+        * This test checks if the code changes we made to avoid the problem of newline character work for
+        * multiple line input or not.
         * */
-        System.out.println("multiple lines of text.");
-
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
