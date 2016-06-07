@@ -49,6 +49,12 @@ public class DisplayMessagesToConsoleTest {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay();
+        consoleDisplay.displayProductNotFoundMessage("91837248");
+        consoleDisplay.displayEmptyBarcodeMessage();
+        consoleDisplay.displayProductNotFoundMessage("32871");
+        consoleDisplay.displayEmptyBarcodeMessage();
+
         assertEquals(Arrays.asList("Product not found for 91837248",
                 "Scanning error: empty barcode.",
                 "Product not found for 32871",
