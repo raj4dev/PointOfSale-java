@@ -39,7 +39,7 @@ public class DisplayMessagesToConsoleTest {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
-        new ConsoleDisplay().displayEmptyBarcodeMessage("");
+        new ConsoleDisplay().displayEmptyBarcodeMessage();
 
         assertEquals(Arrays.asList("Scanning error: empty barcode."), TextUtilities.lines(canvas.toString("UTF-8")));
     }
@@ -49,8 +49,8 @@ public class DisplayMessagesToConsoleTest {
             System.out.println("Product not found for " + barcodeNotFound);
         }
 
-        public void displayEmptyBarcodeMessage(String s) {
-
+        public void displayEmptyBarcodeMessage() {
+            System.out.println("Scanning error: empty barcode.");
         }
     }
 }
