@@ -1,7 +1,7 @@
 package ca.jbrains.pos.test;
 
 public class ConsoleDisplay {
-    public static String formatPrice(Price price) {
+    private static String formatPrice(Price price) {
         return String.format("$%,.2f", price.dollarValue());
     }
 
