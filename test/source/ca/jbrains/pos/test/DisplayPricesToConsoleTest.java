@@ -37,10 +37,10 @@ public class DisplayPricesToConsoleTest {
 
     @Test
     public void test() throws Exception {
-        assertEquals(expectedFormattedPrice, format(priceInCents));
+        assertEquals(expectedFormattedPrice, format(priceInCents, Price.cents(priceInCents)));
     }
 
-    public static String format(int priceInCents) {
+    public static String format(int priceInCents, Price price) {
         return String.format("$%,.2f", priceInCents / 100.0d);/*###1*/
     }
 
