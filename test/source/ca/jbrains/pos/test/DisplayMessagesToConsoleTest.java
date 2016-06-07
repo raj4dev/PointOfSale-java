@@ -4,7 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
 
 public class DisplayMessagesToConsoleTest {
 
@@ -22,6 +26,7 @@ public class DisplayMessagesToConsoleTest {
 
     @Test
     public void productNotFoundMessage() throws Exception {
-
+        ByteArrayOutputStream canvas = new ByteArrayOutputStream();
+        assertEquals(Arrays.asList("Product not found for 91837248"), TextUtilities.lines(canvas.toString("UTF-8")));
     }
 }
