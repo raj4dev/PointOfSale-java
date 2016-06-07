@@ -8,7 +8,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -35,7 +34,7 @@ public class LearnHowToHijackSystemOutTest {
         System.out.println("Hello, world.");
 
         //Assertion of this test should be to check the ByteArrayOutputStream & get 'hello world' back.
-        assertEquals(Collections.singletonList("Hello, world."), lines(canvas.toString("UTF-8")));
+        assertEquals(Collections.singletonList("Hello, world."), TextUtilities.lines(canvas.toString("UTF-8")));
     }
 
     @Test
@@ -51,12 +50,7 @@ public class LearnHowToHijackSystemOutTest {
             System.out.println("Line " + i);
         }
 
-        assertEquals(Arrays.asList("Line 1","Line 2","Line 3","Line 4","Line 5"), lines(canvas.toString("UTF-8")));
+        assertEquals(Arrays.asList("Line 1","Line 2","Line 3","Line 4","Line 5"), TextUtilities.lines(canvas.toString("UTF-8")));
     }
 
-    //REFACTOR move this into a reusable library OR
-    //find a library which implements this more reliably.
-    private List<String> lines(String text) {
-       return Arrays.asList(text.split(System.lineSeparator()));
-    }
 }
