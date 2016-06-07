@@ -27,6 +27,9 @@ public class DisplayMessagesToConsoleTest {
     @Test
     public void productNotFoundMessage() throws Exception {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
+
+        new ConsoleDisplay().displayProductNotFoundMessage("91837248");
+
         assertEquals(Arrays.asList("Product not found for 91837248"), TextUtilities.lines(canvas.toString("UTF-8")));
     }
 }
