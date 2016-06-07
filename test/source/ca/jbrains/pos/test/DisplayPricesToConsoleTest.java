@@ -1,10 +1,14 @@
 package ca.jbrains.pos.test;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -12,6 +16,18 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class DisplayPricesToConsoleTest {
+
+    private PrintStream productionSystemOut;
+
+    @Before
+    public void rememberSystemOut() {
+        productionSystemOut = System.out;
+    }
+
+    @After
+    public void restoreSystemOut() {
+        System.setOut(productionSystemOut);
+    }
 
     private final int priceInCents;
     private final String expectedFormattedPrice;
@@ -37,7 +53,11 @@ public class DisplayPricesToConsoleTest {
 
     @Test
     public void test() throws Exception {
+        ByteArrayOutputStream canvas = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(canvas));
+
         assertEquals(expectedFormattedPrice, format(Price.cents(priceInCents)));
+        assertEquals(Arrays.asList(expectedFormattedPrice), TextUtilities.lines(canvas.toString("UTF-8")));
     }
 
     public static String format(Price price) {
