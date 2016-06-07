@@ -1,15 +1,21 @@
 package ca.jbrains.pos.test;
 
 public class Price {
+    private final int centsValue;
+
+    public Price(int centsValue) {
+        this.centsValue = centsValue;
+    }
+
     public static Price cents(int centsValue) {
-        return new Price();
+        return new Price(centsValue);
     }
 
     public static double priceInDollars(int priceInCents) {
         return priceInCents / 100.0d;
     }
     public double dollarValue() {
-        return priceInCents / 100.0d;
+        return centsValue / 100.0d;
     }
 
     @Override
