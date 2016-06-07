@@ -12,8 +12,9 @@ public class Price {
     }
 
     public static double priceInDollars(int priceInCents) {
-        return priceInCents / 100.0d;
+        return Price.cents(priceInCents).dollarValue();
     }
+
     public double dollarValue() {
         return centsValue / 100.0d;
     }
