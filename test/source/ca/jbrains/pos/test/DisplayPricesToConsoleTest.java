@@ -39,6 +39,7 @@ public class DisplayPricesToConsoleTest {
 
     @Parameters(name = "Monetary amount {0} formats to {1}")
     public static Collection<Object[]> data() {
+        //REFACTOR change the price integers to price objects. Use Price.cents() to do this.
         return Arrays.asList(new Object[][]{
                 {789, "$7.89"},
                 {520, "$5.20"},
@@ -56,12 +57,9 @@ public class DisplayPricesToConsoleTest {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
-        assertEquals(expectedFormattedPrice, format(Price.cents(priceInCents)));
-        assertEquals(Arrays.asList(expectedFormattedPrice), TextUtilities.lines(canvas.toString("UTF-8")));
-    }
+        new ConsoleDisplay().displayPrice(Price.cents(priceInCents));
 
-    public static String format(Price price) {
-        return String.format("$%,.2f", price.dollarValue());/*###1*/
+        assertEquals(Arrays.asList(expectedFormattedPrice), TextUtilities.lines(canvas.toString("UTF-8")));
     }
 
 }
