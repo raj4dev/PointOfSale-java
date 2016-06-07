@@ -3,14 +3,17 @@ package ca.jbrains.pos.test;
 public class ConsoleDisplay {
 
     public void displayProductNotFoundMessage(String barcodeNotFound) {
-        System.out.println("Product not found for " + barcodeNotFound);
+        System.out.println(
+                String.format("Product not found for %s", barcodeNotFound));
     }
 
     public void displayEmptyBarcodeMessage() {
-        System.out.println("Scanning error: empty barcode.");
+        System.out.println(
+                String.format("Scanning error: empty barcode."));
     }
 
     public void displayPrice(Price price) {
-        System.out.println(String.format("$%,.2f", price.dollarValue()));
+        System.out.println(
+                String.format("$%,.2f", price.dollarValue()));
     }
 }
