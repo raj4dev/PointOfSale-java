@@ -41,31 +41,8 @@ public class DisplayPricesToConsoleTest {
     }
 
     public static String format(int priceInCents, Price price) {
-        return String.format("$%,.2f", Price.priceInDollars(priceInCents));/*###1*/
+        return String.format("$%,.2f", Price.cents(priceInCents).dollarValue());/*###1*/
     }
 
 }
 
-/*
-* --------------------------------------------------------------
-* NOTES
-* --------------------------------------------------------------
-*
-* ###1
-*
-* We divide by 100.0 to get a decimal result & not a rounded off integer;
-* Not sure if d is needed. Code works without it;
-*
-* $ prints the dollar sign as is;
-* The % marks the beginning of a 'formatMonetaryAmount specifier' or the formatMonetaryAmount in which a
-* a particular argument of formatMonetaryAmount() is to be printed. The formatMonetaryAmount specifier
-* ends with a 'converter';
-*
-* ,.2f is a 'formatMonetaryAmount specifier'  which means print only two places after a decimal
-* of the desired argument. If the arg has only 1 decimal, then a zero will be added.
-* The f is a 'converter' which marks the end of the formatMonetaryAmount specifier. The comma
-* tells formatMonetaryAmount() to group the whole number part of the argument per locale-specific
-* grouping. That is, Americans will get "4,189.76", Germans will get '4.189.76'
-* & Swiss Germans will get 4'189'76 etc.
-*
-* */
