@@ -41,11 +41,7 @@ public class DisplayPricesToConsoleTest {
     }
 
     public static String format(int priceInCents, Price price) {
-        return String.format("$%,.2f", priceInDollars(priceInCents));/*###1*/
-    }
-
-    private static double priceInDollars(int priceInCents) {
-        return priceInCents / 100.0d;
+        return String.format("$%,.2f", Price.priceInDollars(priceInCents));/*###1*/
     }
 
 }
