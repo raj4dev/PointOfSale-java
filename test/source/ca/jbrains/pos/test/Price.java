@@ -8,6 +8,9 @@ public class Price {
     public static double priceInDollars(int priceInCents) {
         return priceInCents / 100.0d;
     }
+    public double dollarValue() {
+        return priceInCents / 100.0d;
+    }
 
     @Override
     public String toString() {
