@@ -11,6 +11,10 @@ public class ConsoleDisplay {
     }
 
     private void displayMessage(String messageTemplate, Object... placeholders) {
+        renderMessage(messageTemplate, placeholders);
+    }
+
+    private void renderMessage(String messageTemplate, Object... placeholders) {
         System.out.println(
                 formatMessage(messageTemplate, placeholders));
     }
