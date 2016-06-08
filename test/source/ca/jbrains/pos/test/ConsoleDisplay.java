@@ -12,7 +12,11 @@ public class ConsoleDisplay {
 
     private void displayMessage(String messageTemplate, Object... placeholders) {
         System.out.println(
-                String.format(messageTemplate, placeholders));
+                formatMessage(messageTemplate, placeholders));
+    }
+
+    private String formatMessage(String messageTemplate, Object... placeholders) {
+        return String.format(messageTemplate, placeholders);
     }
 
     public void displayEmptyBarcodeMessage(Object... placeholders) {
