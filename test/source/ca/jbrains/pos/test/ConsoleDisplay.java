@@ -11,12 +11,12 @@ public class ConsoleDisplay {
     }
 
     private void displayMessage(String messageTemplate, Object... placeholders) {
-        renderMessage(messageTemplate, placeholders);
+        render(formatMessage(messageTemplate, placeholders));
     }
 
-    private void renderMessage(String messageTemplate, Object... placeholders) {
+    private void render(String text) {
         System.out.println(
-                formatMessage(messageTemplate, placeholders));
+                text);
     }
 
     private String formatMessage(String messageTemplate, Object... placeholders) {
