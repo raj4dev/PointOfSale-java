@@ -63,14 +63,6 @@ public class SellOneItemControllerTest {
         saleController.onBarcode("");
     }
 
-    public interface Display {
-        void displayPrice(Price price);
-
-        void displayProductNotFoundMessage(String barcodeNotFound);
-
-        void displayEmptyBarcodeMessage();
-    }
-
     public static class SaleController {
         private Display display;
         private Catalog catalog;
