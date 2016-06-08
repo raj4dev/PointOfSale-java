@@ -6,8 +6,8 @@ public class ConsoleDisplay {
     public static final String SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT = "Scanning error: empty barcode.";
     public static final String PRICE_IN_DOLLARS_MESSAGE_FORMAT = "$%,.2f";
 
-    private void displayMessage(String messageTemplate, Object... placeholders) {
-        render(formatMessage(messageTemplate, placeholders));
+    private void displayMessage(String messageTemplate, Object... placeholderValues) {
+        render(formatMessage(messageTemplate, placeholderValues));
     }
 
     private void render(String text) {
@@ -15,8 +15,8 @@ public class ConsoleDisplay {
                 text);
     }
 
-    private String formatMessage(String messageTemplate, Object... placeholders) {
-        return String.format(messageTemplate, placeholders);
+    private String formatMessage(String messageTemplate, Object... placeholderValues) {
+        return String.format(messageTemplate, placeholderValues);
     }
 
     public void displayProductNotFoundMessage(Object... placeholderValues) {
