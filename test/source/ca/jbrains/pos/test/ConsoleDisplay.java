@@ -18,15 +18,15 @@ public class ConsoleDisplay {
         return String.format(messageTemplate, placeholderValues);
     }
 
-    public void displayProductNotFoundMessage(Object... placeholderValues) {
-        displayMessage(PRODUCT_NOT_FOUND_MESSAGE_FORMAT, placeholderValues);
+    public void displayProductNotFoundMessage(String barcodeNotFound) {
+        displayMessage(PRODUCT_NOT_FOUND_MESSAGE_FORMAT, barcodeNotFound);
     }
 
-    public void displayEmptyBarcodeMessage(Object... placeholderValues) {
+    public void displayEmptyBarcodeMessage() {
         displayMessage(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT);
     }
 
-    public void displayPriceInDollars(Object... placeholderValues) {
-        displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, placeholderValues);
+    public void displayPriceInDollars(double priceInDollars) {
+        displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, priceInDollars);
     }
 }
