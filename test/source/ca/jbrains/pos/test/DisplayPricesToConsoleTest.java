@@ -57,7 +57,7 @@ public class DisplayPricesToConsoleTest {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
-        new ConsoleDisplay().displayPriceInDollars(Price.cents(priceInCents).dollarValue());
+        new ConsoleDisplay().displayPrice(Price.cents(priceInCents));
 
         assertEquals(Arrays.asList(expectedFormattedPrice), TextUtilities.lines(canvas.toString("UTF-8")));
     }

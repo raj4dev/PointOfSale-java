@@ -26,7 +26,7 @@ public class ConsoleDisplay {
         displayMessage(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT);
     }
 
-    public void displayPriceInDollars(double priceInDollars) {
-        displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, priceInDollars);
+    public void displayPrice(Price price) {
+        displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, price.dollarValue());
     }
 }

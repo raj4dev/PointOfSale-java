@@ -106,7 +106,7 @@ NOTES
 
 ###1
 
-MEANING - Something in this test needs to invoke 'displayPriceInDollars' on the 'display',
+MEANING - Something in this test needs to invoke 'displayPrice' on the 'display',
 'with' the parameters 7$ & 95cents only once ('oneOf'). This line is like an
 assertion. Fun fact: If you did this with the Ruby based RSpec library, then it
 would be expect(display).to receive(:display_price).with(Price.cents(795))
@@ -126,13 +126,13 @@ java.lang.AssertionError: not all expectations were satisfied expectations:
 allowed, never invoked: catalog.findPrice("12345"); returns <a Price>
 ----Meaning: You said you'd call findPrice(), but you did not.
 
-! expected once, never invoked: display.displayPriceInDollars(<a Price>)
+! expected once, never invoked: display.displayPrice(<a Price>)
 what happened before this: nothing!...etc.
-----Meaning: You said you'd call displayPriceInDollars(), but you did not.
+----Meaning: You said you'd call displayPrice(), but you did not.
 
 ###Test output: productNotFound
 
-java.lang.AssertionError: unexpected invocation: display.displayPriceInDollars(null)
+java.lang.AssertionError: unexpected invocation: display.displayPrice(null)
 expectations:
 ---- jmock tells us that we invoked something other than the method we were supposed to
 invoke (display.displayProductNotFoundMessage).
