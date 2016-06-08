@@ -1,5 +1,8 @@
 package ca.jbrains.pos.test;
 
+import ca.jbrains.pos.Display;
+import ca.jbrains.pos.Price;
+
 public class EnglishLanguageConsoleDisplay implements Display {
 
     public static final String PRODUCT_NOT_FOUND_MESSAGE_FORMAT = "Product not found for %s";
