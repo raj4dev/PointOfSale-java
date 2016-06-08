@@ -7,8 +7,12 @@ public class ConsoleDisplay {
     public static final String PRICE_IN_DOLLARS_MESSAGE_FORMAT = "$%,.2f";
 
     public void displayProductNotFoundMessage(Object... placeholders) {
+        displayMessage(PRODUCT_NOT_FOUND_MESSAGE_FORMAT, placeholders);
+    }
+
+    private void displayMessage(String messageTemplate, Object... placeholders) {
         System.out.println(
-                String.format(PRODUCT_NOT_FOUND_MESSAGE_FORMAT, placeholders));
+                String.format(messageTemplate, placeholders));
     }
 
     public void displayEmptyBarcodeMessage(Object... placeholders) {
@@ -17,7 +21,6 @@ public class ConsoleDisplay {
     }
 
     public void displayPriceInDollars(Object... placeholders) {
-        System.out.println(
-                String.format(PRICE_IN_DOLLARS_MESSAGE_FORMAT, placeholders));
+        displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, placeholders);
     }
 }
