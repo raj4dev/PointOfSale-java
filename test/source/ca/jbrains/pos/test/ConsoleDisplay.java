@@ -7,15 +7,14 @@ public class ConsoleDisplay {
     public static final String PRICE_IN_DOLLARS_MESSAGE_FORMAT = "$%,.2f";
 
     private void displayMessage(String messageTemplate, Object... placeholderValues) {
-        render(formatMessage(messageTemplate, placeholderValues));
+        render(mergeTemplate(messageTemplate, placeholderValues));
     }
 
     private void render(String text) {
-        System.out.println(
-                text);
+        System.out.println(text);
     }
 
-    private String formatMessage(String messageTemplate, Object... placeholderValues) {
+    private String mergeTemplate(String messageTemplate, Object... placeholderValues) {
         return String.format(messageTemplate, placeholderValues);
     }
 
