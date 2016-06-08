@@ -1,7 +1,4 @@
-package ca.jbrains.pos.test;
-
-import ca.jbrains.pos.Display;
-import ca.jbrains.pos.Price;
+package ca.jbrains.pos;
 
 public class EnglishLanguageConsoleDisplay implements Display {
 

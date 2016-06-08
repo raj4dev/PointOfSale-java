@@ -1,5 +1,6 @@
 package ca.jbrains.pos.test;
 
+import ca.jbrains.pos.EnglishLanguageConsoleDisplay;
 import ca.jbrains.pos.Price;
 import org.junit.After;
 import org.junit.Before;
