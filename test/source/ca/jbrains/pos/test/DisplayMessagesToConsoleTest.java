@@ -29,7 +29,7 @@ public class DisplayMessagesToConsoleTest {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
-        new ConsoleDisplay().displayProductNotFoundMessage("91837248");
+        new EnglishLanguageConsoleDisplay().displayProductNotFoundMessage("91837248");
 
         assertEquals(Arrays.asList("Product not found for 91837248"), TextUtilities.lines(canvas.toString("UTF-8")));
     }
@@ -39,7 +39,7 @@ public class DisplayMessagesToConsoleTest {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
-        new ConsoleDisplay().displayEmptyBarcodeMessage();
+        new EnglishLanguageConsoleDisplay().displayEmptyBarcodeMessage();
 
         assertEquals(Arrays.asList("Scanning error: empty barcode."), TextUtilities.lines(canvas.toString("UTF-8")));
     }
@@ -49,7 +49,7 @@ public class DisplayMessagesToConsoleTest {
         ByteArrayOutputStream canvas = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
-        ConsoleDisplay consoleDisplay = new ConsoleDisplay();
+        EnglishLanguageConsoleDisplay consoleDisplay = new EnglishLanguageConsoleDisplay();
         consoleDisplay.displayProductNotFoundMessage("91837248");
         consoleDisplay.displayEmptyBarcodeMessage();
         consoleDisplay.displayProductNotFoundMessage("32871");
