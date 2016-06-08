@@ -16,7 +16,7 @@ public class ConsoleDisplay {
                 String.format(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT));
     }
 
-    public void displayPrice(Price price) {
+    public void displayPriceInDollars(Price price) {
         System.out.println(
                 String.format(PRICE_IN_DOLLARS_MESSAGE_FORMAT, price.dollarValue()));
     }
