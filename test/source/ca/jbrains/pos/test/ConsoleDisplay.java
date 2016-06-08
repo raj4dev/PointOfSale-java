@@ -16,8 +16,7 @@ public class ConsoleDisplay {
     }
 
     public void displayEmptyBarcodeMessage(Object... placeholders) {
-        System.out.println(
-                String.format(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT));
+        displayMessage(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT);
     }
 
     public void displayPriceInDollars(Object... placeholders) {
