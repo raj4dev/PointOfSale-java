@@ -31,7 +31,7 @@ public class SellOneItemControllerTest {
         }});
 
         /* Action part of the test*/
-        SaleController saleController = new SaleController(display, catalog);
+        SaleController saleController = new SaleController(catalog, display);
         saleController.onBarcode("::product found::");
     }
 
@@ -50,7 +50,7 @@ public class SellOneItemControllerTest {
             oneOf(display).displayProductNotFoundMessage(with("::product not found::"));
         }});
 
-        SaleController saleController = new SaleController(display, catalog);
+        SaleController saleController = new SaleController(catalog, display);
         /*2...then when I scan that 'barcode'...*/
         saleController.onBarcode("::product not found::");
     }
@@ -63,7 +63,7 @@ public class SellOneItemControllerTest {
             oneOf(display).displayEmptyBarcodeMessage();
         }});
 
-        SaleController saleController = new SaleController(display, null);
+        SaleController saleController = new SaleController(null, display);
         saleController.onBarcode("");
     }
 

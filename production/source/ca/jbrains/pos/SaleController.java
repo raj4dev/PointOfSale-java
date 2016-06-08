@@ -4,7 +4,7 @@ public class SaleController {
     private Display display;
     private Catalog catalog;
 
-    public SaleController(Display display, Catalog catalog) {
+    public SaleController(Catalog catalog, Display display) {
         this.display = display;
         this.catalog = catalog;
     }
